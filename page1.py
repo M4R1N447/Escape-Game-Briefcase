@@ -19,6 +19,8 @@ Last Updated: 24-07-2024
 from PyQt6.QtWidgets import QWidget, QHBoxLayout, QLabel, QPushButton
 from PyQt6.QtCore import pyqtSignal
 
+from widgets.buttonWidget import ButtonWidget as Button
+
 
 class Page1(QWidget):
 

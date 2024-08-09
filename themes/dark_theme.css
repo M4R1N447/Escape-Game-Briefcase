@@ -1,0 +1,222 @@
+/*
+# ___________________________________________________________________
+#  ____     ____  __  .'`",.'`",.- WWW.MARIOKUIJPERS.COM -.'`",.'`",.
+#  |   \   /   | / /            .-.    .-.    ,.--.
+#  | |\ \ / /| |/ /  2024      | OO|  | OO|  /  _.-' .-. .-. .-. .''.
+#  | | \   / |    \  MARIO     |   |  |   |  \   '-. '-' '-' '-' '..'
+#  |_|  \_/  |_| \_\ KUIJPERS  '^^^'  '^^^'   `'--'
+# ___________________________________________________________________
+#
+# FILE: dark_theme.css
+# INFO: Dark Theme Stylesheet for Escape Game: Mr Robot
+#
+# Author: Mario Kuijpers
+# Start date: 06-07-2021
+# Last update: 09-08-2024
+# Github: https://github.com/M4R1N447/Escape-Game-Briefcase
+# Status: In Progress
+# ___________________________________________________________________
+
+# Predefined RGB Colors
+WHITE = (255, 255, 255)  # #ffffff
+LIGHT_GRAY = (222, 222, 222)  # #dedede
+GRAY = (128, 128, 128)  # #808080 (50% GREY)
+EXTRA_DARK_GRAY = (10, 10, 15)  # #0a0a0f
+BLACK = (0, 0, 0)  # #000000
+
+EXTRA_LIGHT_RED = (230, 187, 173)  # #e6bbad (Complementary LIGHT_BLUE)
+LIGHT_RED = (236, 94, 94)  # #ec5e5e
+RED = (255, 0, 0)  #ff0000 (Complementary LIGHT_BLUE)
+MEDIUM_RED = (205, 32, 32)  # #cd2020
+DARK_RED = (154, 36, 36)  # #9a2424
+EXTRA_DARK_RED = (111, 36, 36)  # #6f2424
+
+EXTRA_LIGHT_BLUE = (173, 216, 230)  # #add8e6  (Complementary LIGHT_ORANGE)
+LIGHT_BLUE = (0, 255, 255)  # #00ffff (Complementary RED)
+MEDIUM_BLUE = (0, 127, 255)  # #007fff (Complementary ORANGE)
+BLUE = (0, 0, 255)  # #0000ff (Complementary YELLOW)
+DARK_BLUE = (50, 50, 150)  # #323296
+EXTRA_DARK_BLUE = (45, 45, 104)  # #2d2d68
+
+EXTRA_LIGHT_GREEN = (153, 255, 153)  # #99ff99 (Complementary EXTRA_LIGHT_PINK)
+LIGHT_GREEN = (0, 230, 0)  # #00e600 (Complementary LIGHT_PINK)
+GREEN = (0, 255, 0)  # #00ff00
+MEDIUM_GREEN = (0, 188, 80)  # #00bc50 (Complementary PINK)
+DARK_GREEN = (29, 133, 73)  # #1d8549
+EXTRA_DARK_GREEN = (45, 68, 49)  # #2d4431 (Complementary PURPLE)
+
+EXTRA_LIGHT_YELLOW = (250, 250, 182)  # #fafab6
+LIGHT_YELLOW = (249, 249, 135)  # #f9f987
+YELLOW = (255, 255, 0)  # #ffff00 (Complementary BLUE)
+MEDIUM_YELLOW = (213, 213, 53)  # #d5d535
+DARK_YELLOW = (161, 161, 63)  # #a1a13f
+EXTRA_DARK_YELLOW = (92, 92, 61)  # #5c5c3d (Complementary LIGHT_PURPLE)
+
+EXTRA_LIGHT_ORANGE = (251, 182, 113)  # #fbb671
+LIGHT_ORANGE = (255, 179, 0)  # #ffb300
+ORANGE = (255, 128, 0)  # #ff8000 (Complementary MEDIUM_BLUE)
+MEDIUM_ORANGE = (220, 122, 22)  # #dc7a16
+DARK_ORANGE = (255, 77, 0)  # #ff4d00
+EXTRA_DARK_ORANGE = (166, 70, 29)  # #a6461d
+
+EXTRA_LIGHT_PINK = (255, 153, 255)  # #ff99ff (Complementary EXTRA_LIGHT_GREEN)
+LIGHT_PINK = (230, 0, 230)  # #e600e6 (Complementary LIGHT_GREEN)
+PINK = (255, 0, 255)  # #ff00ff
+MEDIUM_PINK = (188, 0, 108)  # #bc006c (Complementary GREEN)
+DARK_PINK = (128, 77, 128)  # #804d80
+EXTRA_DARK_PINK = (110, 29, 110)  # #6e1d6e)
+
+EXTRA_LIGHT_PURPLE = (161, 121, 234)  # #a179ea
+LIGHT_PURPLE = (61, 61, 92)  # #3d3d5c (Complementary EXTRA_DARK_YELLOW)
+PURPLE = (153, 0, 255)  # #9900ff
+MEDIUM_PURPLE = (44, 33, 64)  # #2c2140 (Complementary DARK_GREEM)
+DARK_PURPLE = (31, 31, 46)  #1f1f2e
+EXTRA_DARK_PURPLE = (10, 10, 15)  #0a0a0f
+
+# Background Colors
+BG_COLOR = DARK_PURPLE
+BG_LIGHT_COLOR = LIGHT_PURPLE
+BG_DARK_COLOR = EXTRA_DARK_PURPLE
+BG_STATUSBAR_COLOR = LIGHT_GRAY
+
+# Main Font Colors
+MAIN_FONT_COLOR = LIGHT_GREEN
+MAIN_DARK_FONT_COLOR = GREEN
+MAIN_LIGHT_FONT_COLOR = EXTRA_LIGHT_GREEN
+
+# Button Colors
+BTN_MOUSE_OVER_COLOR = LIGHT_GREEN
+BTN_MOUSE_OUT_COLOR = LIGHT_PURPLE
+BTN_MOUSE_CLICKED_COLOR = EXTRA_LIGHT_GREEN
+
+# Inputbox Colors
+INPUT_BG_COLOR = WHITE
+INPUT_FONT_COLOR = BLACK
+
+# Standard Text Font
+STANDARD_FONT_COLOR = LIGHT_GREEN
+
+# QR Code Generator
+QR_FILL_COLOR = BLACK
+QR_BG_COLOR = WHITE
+
+# Briefcase background and border colors
+BRIEFCASE_BORDER_COLOR = WHITE
+BRIEFCASE_BG_COLOR = DARK_PURPLE
+BRIEFCASE_MAIN_BG_COLOR = PURPLE
+
+# Briefcase LED Matrix Colors
+BRIEFCASE_MATRIX_BG_COLOR = EXTRA_DARK_GRAY
+
+# Briefcase LED Colors
+BRIEFCASE_STD_LED_ON_COLOR = GREEN
+BRIEFCASE_STD_LED_OFF_COLOR = BLACK
+BRIEFCASE_LED_BG_COLOR = BLUE
+
+# Briefcase LCD Colors
+LCD_BG_COLOR = BLUE
+
+# Briefcase Meter Colors
+METER_COLOR = YELLOW
+
+# Briefcase Tuimelschakelaar Colors
+SWITCH_BG_COLOR = BLUE
+SWITCH_COLOR = YELLOW
+
+# Briefcase Keypad Colors
+KEY_COLOR = YELLOW
+
+*/
+
+* {
+    background-color: #0a0a0f;
+    color: #ebebeb;
+    font-family: "Verdana";
+    font-size: 10pt;
+    margin: 0px 0px 0px 0px;
+}
+
+/* Window Items */
+QMainWindow { 
+    margin: 0px 0px 0px 0px;
+    border: 1px solid #1f1f2e;
+    border-radius: 8px;
+}
+
+QLabel {
+    font-family: "Share Tech Regular";
+    font-size: 12pt;
+    margin: 0px 0px 0px 0px;
+}
+
+QLabel#HeaderLblWidget {
+    color: #ff0000;
+    font-size: 80px;
+    font-family: "MrRobot";
+}
+
+QLabel#TitleLblWidget {
+    color: #00e600;
+    font-size: 60px;
+    font-family: "MrRobot";
+}
+
+QLabel#SubTitleLblWidget {
+    color: #00e600;
+    font-size: 20px;
+    font-family: "Share Tech Regular";
+}
+
+QLabel#SplashLblWidget {
+    color: #00e600;
+    font-size: 40px;
+    font-family: "Arcade";
+}
+
+QLabel#WarningLblWidget {
+    color: #ff0000;
+    font-size: 20px;
+    font-family: "Share Tech Regular";
+}
+
+QLabel#TextLblWidget {
+    color: #00ff00;
+    font-size: 14px;
+    font-family: "Share Tech Regular";
+}
+
+#ImageWidget QLabel {
+    margin: 0px 0px 0px 0px;
+    border: 1px solid #2c2140;
+    border-radius: 5px;
+}
+
+QPushButton {
+    background-color: #3d3d5c;
+    border: 1px solid #9900ff;
+    border-radius: 8px;
+    color: #43c959;
+    font-family: "Arcade";
+    font-size: 20pt;
+    text-align: center;
+    margin: 0px 0px 0px 0px;
+    padding: 10px 0px 0px 0px;
+}
+
+QPushButton#ButtonWidget:hover {
+    background-color: #3d3d5c;
+    color: #a179ea;
+    border: 1px solid #43c959;
+}
+
+QPushButton#ButtonWidget:pressed {
+    background-color: #43c959;
+    color: #3d3d5c;
+    border: 1px solid #a179ea;
+}
+
+QGroupBox {
+    margin: 0px 0px 0px 0px;
+    border: 1px solid #aaaaaa;
+    border-radius: 8px;
+}

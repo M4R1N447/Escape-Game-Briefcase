@@ -26,7 +26,8 @@ from PyQt6.QtWidgets import (QWidget,
 from PyQt6.QtCore import pyqtSignal
 from PyQt6.QtCore import Qt
 
-from widgets.mainWidgets import LabelWidget, ButtonWidget
+from widgets.mainWidgets import LabelWidget
+from widgets.buttonWidget import ButtonWidget as Button
 
 
 class LoginScreen(QWidget):

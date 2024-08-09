@@ -21,8 +21,7 @@ from PyQt6.QtCore import Qt
 from PyQt6.QtGui import (QPixmap, QFont)
 from PyQt6.QtWidgets import (QWidget,
                              QHBoxLayout,
-                             QLabel,
-                             QPushButton)
+                             QLabel)
 
 
 class LabelWidget(QLabel):
@@ -59,65 +58,6 @@ class LabelWidget(QLabel):
                 self.setAlignment(Qt.AlignmentFlag.AlignLeft)
             elif align == "right":
                 self.setAlignment(Qt.AlignmentFlag.AlignRight)
-
-
-class ButtonWidget(QPushButton):
-    '''
-    Button widget Class
-    '''
-    def __init__(self,
-                 label: str = "",
-                 height: int = None,
-                 width: int = None,
-                 active: bool = True,
-                 action=lambda: None,
-                 *args, **kwargs):
-
-        super().__init__(*args, **kwargs)
-        self.label = label
-        self.active = active
-        self.action = action
-        self.btn_height = height
-        self.btn_width = width
-
-        # Set object name for styling
-        self.setObjectName("ButtonWidget")
-
-        # Set button size
-        if height:
-            self.setFixedHeight(self.btn_height)
-        if width:
-            self.setFixedWidth(self.btn_width)
-
-        # Set button label
-        self.setText(label)
-
-        # Set button active state
-        self.setEnabled(active)
-        self.setCheckable(True)
-
-        # Start action when button is clicked
-        self.clicked.connect(lambda _: self.action())
-
-        # Set cursor
-        self.updateCursor()
-
-    def setActive(self, active: bool):
-        '''
-        Set button active / inactive
-        '''
-        self.active = active
-        self.setEnabled(active)
-        self.updateCursor()
-
-    def updateCursor(self):
-        '''
-        Update cursor based on button active state
-        '''
-        if self.active:
-            self.setCursor(Qt.CursorShape.PointingHandCursor)
-        else:
-            self.setCursor(Qt.CursorShape.ForbiddenCursor)
 
 
 class ImageWidget(QWidget):

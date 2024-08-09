@@ -1,19 +1,20 @@
-'''
-Program Name: Standard QT Framework
-
-Program Description:
-This is a basic QT framework which can be used to create a new program.
-This program is currently in development.
-
-File: main.py
-Function: Main Gui Setup
-
-Author: Mario Kuijpers
-Version: 1.0
-Created: 01-06-2024
-Last Updated: 24-07-2024
-
-'''
+# ___________________________________________________________________
+#   ___     ____  __  .'`",.'`",.- WWW.MARIOKUIJPERS.COM -.'`",.'`",.
+#  |   \   /   | / /            .-.    .-.    ,.--.
+#  | |\ \ / /| |/ /  2024      | OO|  | OO|  /  _.-' .-. .-. .-. .''.
+#  | | \   / |    \  MARIO     |   |  |   |  \   '-. '-' '-' '-' '..'
+#  |_|  \_/  |_| \_\ KUIJPERS  '^^^'  '^^^'   `'--'
+# ___________________________________________________________________
+#
+# FILE: main.py
+# INFO: Main program for Escape Game: Mr Robot
+#
+# Author: Mario Kuijpers
+# Start date: 06-01-2021
+# Last update: 09-08-2024
+# Github: https://github.com/M4R1N447/Escape-Game-Briefcase
+# Status: In Progress
+# ___________________________________________________________________
 
 # Import PyQt6 modules
 from PyQt6.QtWidgets import (QApplication,
@@ -26,14 +27,14 @@ from PyQt6.QtWidgets import (QApplication,
                              QSizePolicy,
                              QLabel)
 
-# Import custom modules
+# Other imports
+from functions import createPath
+
+# Import custom program modules
 from menuBar import MenuBar
 from login import LoginScreen
 from page2 import Page2
 from page3 import Page3
-
-# Other imports
-from functions import createPath
 
 
 class MainWindow(QMainWindow):
@@ -61,7 +62,7 @@ class MainWindow(QMainWindow):
         self.setWindowTitle("Test Hardware Management System")
 
         # Load initial theme
-        self.loadTheme(theme="style.css")
+        self.loadTheme(theme="dark_theme.css")
 
         # Create menu bar at top of screen
         self.createMenuBar()
@@ -99,7 +100,7 @@ class MainWindow(QMainWindow):
             # Test if stylesheet can be loaded and load it
             try:
                 with open(
-                    createPath("themes/") + str("style.css"), "r",
+                    createPath("themes/") + str(theme), "r",
                         encoding="utf-8") as file:
                     self.setStyleSheet(file.read())
             except (OSError, FileNotFoundError) as error:
