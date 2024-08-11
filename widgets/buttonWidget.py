@@ -17,7 +17,7 @@
 # ___________________________________________________________________
 
 
-# Imports
+# PyQt6 Imports
 from PyQt6.QtCore import Qt
 from PyQt6.QtWidgets import QPushButton
 
@@ -28,8 +28,8 @@ class ButtonWidget(QPushButton):
     '''
     def __init__(self,
                  label: str = "",
-                 height: int = 50,
-                 width: int = 300,
+                 height: int = 0,
+                 width: int = 0,
                  active: bool = True,
                  action=lambda: None):
         super().__init__()

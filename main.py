@@ -16,7 +16,7 @@
 # Status: In Progress
 # ___________________________________________________________________
 
-# Import PyQt6 modules
+# PyQt6 Imports
 from PyQt6.QtWidgets import (QApplication,
                              QMainWindow,
                              QWidget,
@@ -27,10 +27,8 @@ from PyQt6.QtWidgets import (QApplication,
                              QSizePolicy,
                              QLabel)
 
-# Other imports
+# Custom Imports
 from functions import createPath
-
-# Import custom program modules
 from menuBar import MenuBar
 from login import LoginScreen
 from page2 import Page2

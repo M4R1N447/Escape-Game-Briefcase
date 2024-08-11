@@ -203,7 +203,6 @@ QPushButton {
     font-family: "Arcade";
     font-size: 20pt;
     text-align: center;
-    margin: 0px 0px 0px 0px;
     padding: 10px 0px 0px 0px;
 }
 
@@ -217,6 +216,16 @@ QPushButton#ButtonWidget:pressed {
     background-color: #43c959;
     color: #3d3d5c;
     border: 1px solid #a179ea;
+}
+
+/* Input field Style */
+QLineEdit{
+    color: #00e600;
+    font-size: 12pt;
+    font-family: "Verdana";
+    margin: 0px 0px 0px 0px;
+    border: 1px solid #43c959;
+    border-radius: 3px;
 }
 
 /* Image Style */
