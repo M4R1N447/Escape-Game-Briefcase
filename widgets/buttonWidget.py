@@ -11,7 +11,7 @@
 #
 # Author: Mario Kuijpers
 # Start date: 09-08-2024
-# Last update: 09-08-2024
+# Last update: 11-08-2024
 # Github: https://github.com/M4R1N447/Escape-Game-Briefcase
 # Status: In Progress
 # ___________________________________________________________________
@@ -19,26 +19,20 @@
 
 # Imports
 from PyQt6.QtCore import Qt
-from PyQt6.QtCore import Qt
-from PyQt6.QtGui import (QPixmap, QFont)
-from PyQt6.QtWidgets import (QWidget,
-                             QHBoxLayout,
-                             QLabel)
-from PyQt6.QtWidgets import (QWidget, QPushButton)
+from PyQt6.QtWidgets import QPushButton
 
 
-class ButtonWidget(QWidget, QPushButton):
+class ButtonWidget(QPushButton):
     '''
-    Button widget
+    Button widget Class
     '''
     def __init__(self,
                  label: str = "",
                  height: int = 50,
                  width: int = 300,
                  active: bool = True,
-                 action=lambda: None,
-                 *args, **kwargs):
-        super().__init__(*args, **kwargs)
+                 action=lambda: None):
+        super().__init__()
 
         # Set object name for styling
         self.setObjectName("ButtonWidget")

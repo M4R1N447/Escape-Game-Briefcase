@@ -128,6 +128,7 @@ KEY_COLOR = YELLOW
 
 */
 
+/* Main Program Style */
 * {
     background-color: #0a0a0f;
     color: #ebebeb;
@@ -136,16 +137,18 @@ KEY_COLOR = YELLOW
     margin: 0px 0px 0px 0px;
 }
 
-/* Window Items */
+/* Main Window Style */
 QMainWindow { 
     margin: 0px 0px 0px 0px;
     border: 1px solid #1f1f2e;
     border-radius: 8px;
 }
 
+/* Label Style */
 QLabel {
-    font-family: "Share Tech Regular";
+    color: #00e600;
     font-size: 12pt;
+    font-family: "Share Tech Regular";
     margin: 0px 0px 0px 0px;
 }
 
@@ -153,44 +156,45 @@ QLabel#HeaderLblWidget {
     color: #ff0000;
     font-size: 80px;
     font-family: "MrRobot";
+    margin: 0px 0px 0px 0px;
 }
 
 QLabel#TitleLblWidget {
     color: #00e600;
     font-size: 60px;
     font-family: "MrRobot";
+    margin: 0px 0px 0px 0px;
 }
 
 QLabel#SubTitleLblWidget {
     color: #00e600;
     font-size: 20px;
     font-family: "Share Tech Regular";
+    margin: 0px 0px 0px 0px;
 }
 
 QLabel#SplashLblWidget {
     color: #00e600;
     font-size: 40px;
     font-family: "Arcade";
+    margin: 0px 0px 0px 0px;
 }
 
 QLabel#WarningLblWidget {
     color: #ff0000;
     font-size: 20px;
     font-family: "Share Tech Regular";
+    margin: 0px 0px 0px 0px;
 }
 
 QLabel#TextLblWidget {
     color: #00ff00;
     font-size: 14px;
     font-family: "Share Tech Regular";
-}
-
-#ImageWidget QLabel {
     margin: 0px 0px 0px 0px;
-    border: 1px solid #2c2140;
-    border-radius: 5px;
 }
 
+/* Pushbutton Style */
 QPushButton {
     background-color: #3d3d5c;
     border: 1px solid #9900ff;
@@ -215,6 +219,14 @@ QPushButton#ButtonWidget:pressed {
     border: 1px solid #a179ea;
 }
 
+/* Image Style */
+#ImageWidget QLabel {
+    margin: 0px 0px 0px 0px;
+    border: 1px solid #2c2140;
+    border-radius: 5px;
+}
+
+/* Groupbox Style */
 QGroupBox {
     margin: 0px 0px 0px 0px;
     border: 1px solid #aaaaaa;

@@ -26,7 +26,8 @@ from PyQt6.QtWidgets import (QWidget,
 from PyQt6.QtCore import pyqtSignal
 from PyQt6.QtCore import Qt
 
-from widgets.mainWidgets import LabelWidget
+# Import custom program modules
+from widgets.labelWidget import LabelWidget as Label
 from widgets.buttonWidget import ButtonWidget as Button
 
 
@@ -68,7 +69,7 @@ class LoginScreen(QWidget):
         login_box_lyt = QVBoxLayout(login_box)
 
         # Create username label
-        self.username_lbl = LabelWidget(label="Username:",
+        self.username_lbl = Label(label="Username:",
                                         font_size=12,
                                         align="center")
         login_box_lyt.addWidget(
@@ -80,7 +81,7 @@ class LoginScreen(QWidget):
             self.username_input, 0, Qt.AlignmentFlag.AlignCenter)
 
         # Create password label
-        self.password_lbl = LabelWidget(label="Password:",
+        self.password_lbl = Label(label="Password:",
                                         font_size=12,
                                         align="center")
         login_box_lyt.addWidget(
@@ -93,7 +94,7 @@ class LoginScreen(QWidget):
             self.password_input, 0, Qt.AlignmentFlag.AlignCenter)
 
         # Create login button
-        self.login_button = ButtonWidget(
+        self.login_button = Button(
             label="Login",
             height=30,
             width=100,
