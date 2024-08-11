@@ -229,6 +229,6 @@ QPushButton#ButtonWidget:pressed {
 /* Groupbox Style */
 QGroupBox {
     margin: 0px 0px 0px 0px;
-    border: 1px solid #aaaaaa;
+    border: 1px solid #43c959;
     border-radius: 8px;
 }

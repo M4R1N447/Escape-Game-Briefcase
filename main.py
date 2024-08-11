@@ -7,7 +7,7 @@
 # ___________________________________________________________________
 #
 # FILE: main.py
-# INFO: Main program for Escape Game: Mr Robot
+# INFO: Main program for Portable Escape Game in a briefcase
 #
 # Author: Mario Kuijpers
 # Start date: 06-01-2021
@@ -59,7 +59,7 @@ class MainWindow(QMainWindow):
         self.setCentralWidget(main_window)
 
         # Set window title
-        self.setWindowTitle("Test Hardware Management System")
+        self.setWindowTitle("Portable Escape Game")
 
         # Load initial theme
         self.loadTheme(theme="dark_theme.css")

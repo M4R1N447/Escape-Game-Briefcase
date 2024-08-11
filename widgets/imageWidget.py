@@ -1,24 +1,25 @@
-'''
-Program Name: Test Hardware Management System
+# ___________________________________________________________________
+#  ____     ____  __  .'`",.'`",.- WWW.MARIOKUIJPERS.COM -.'`",.'`",.
+#  |   \   /   | / /            .-.    .-.    ,.--.
+#  | |\ \ / /| |/ /  2024      | OO|  | OO|  /  _.-' .-. .-. .-. .''.
+#  | | \   / |    \  MARIO     |   |  |   |  \   '-. '-' '-' '-' '..'
+#  |_|  \_/  |_| \_\ KUIJPERS  '^^^'  '^^^'   `'--'
+# ___________________________________________________________________
+#
+# FILE: widgets\imageWidget.py
+# INFO: Image Widget Class for Portable Escape Game
+#
+# Author: Mario Kuijpers
+# Start date: 11-08-2024
+# Last update: 11-08-2024
+# Github: https://github.com/M4R1N447/Escape-Game-Briefcase
+# Status: In Progress
+# ___________________________________________________________________
 
-Program Description:
-This program is a test hardware management system
-which can be used to manage hardware components.
-This program is currently in development.
-
-File: widgets/mainWidgets.py
-Function: Main Widgets Class
-
-Author: Mario Kuijpers
-Version: 1.0
-Created: 21-06-2024
-Last Updated: 21-06-2024
-
-'''
 
 # Imports
 from PyQt6.QtCore import Qt
-from PyQt6.QtGui import (QPixmap, QFont)
+from PyQt6.QtGui import QPixmap
 from PyQt6.QtWidgets import (QWidget,
                              QHBoxLayout,
                              QLabel)
