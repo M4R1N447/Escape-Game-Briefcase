@@ -48,10 +48,10 @@ class LoginScreen(QWidget):
         self.window_width = window_width
         self.setObjectName("loginScreen")
 
-        # Show login box
-        self.loginBox()
+        # Show login screen
+        self.loginScreen()
 
-    def loginBox(self):
+    def loginScreen(self):
         '''
         Login Box Layout
         '''
