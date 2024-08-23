@@ -72,14 +72,8 @@ class Page1(QWidget):
         # Create layout
         layout = QHBoxLayout()
 
-        # Add vertical stretch to center window on screen
-        layout.addStretch()
-
         # Create standard header layout
         self.header_lyt = QVBoxLayout()
-
-        # Add spacing between top and header label
-        self.header_lyt.addSpacing(10)
 
         # Header Label Widget
         header = Label(label="Mr Robot")
@@ -88,9 +82,10 @@ class Page1(QWidget):
         label = Label("ENTER")
         button = Button("Enter")
         button.clicked.connect(lambda: self.enter.emit())
+        self.header_lyt.addWidget(label)
+        self.header_lyt.addWidget(button)
 
-        layout.addWidget(label)
-        layout.addWidget(button)
+        layout.addLayout(self.header_lyt)
 
         self.setLayout(layout)
 

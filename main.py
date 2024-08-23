@@ -54,15 +54,15 @@ class MainWindow(QMainWindow):
         # Set main window as central widget
         self.setCentralWidget(main_window)
 
-        # Create main layout for main window
-        main_layout = QVBoxLayout(main_window)
-        main_layout.setContentsMargins(0, 0, 0, 0)
-
         # Set window title
         self.setWindowTitle("Portable Escape Game")
 
         # Load initial theme
         self.loadTheme(theme="dark_theme.css")
+
+        # Create main layout for main window
+        main_layout = QVBoxLayout(main_window)
+        main_layout.setContentsMargins(0, 0, 0, 0)
 
         # Create menu bar at top of screen
         self.createMenuBar()
@@ -131,18 +131,16 @@ class MainWindow(QMainWindow):
         # Create QWidget to hold layout
         self.header = QWidget()
 
-        # Create vertical layout
-        vert_layout = QVBoxLayout(self.header)
-        vert_layout.setContentsMargins(0, 0, 0, 0)
+        # Create layout
+        layout = QVBoxLayout(self.header)
+        layout.setContentsMargins(0, 0, 0, 0)
 
         # Create horizontal layout
         hor_layout = QHBoxLayout()
         hor_layout.setContentsMargins(0, 0, 0, 0)
 
-        # Add the horizontal layout to vertical layout
-        vert_layout.addLayout(hor_layout)
-        vert_layout.addStretch()
-
+        # Add the horizontal layout to layout
+        layout.addLayout(hor_layout)
         return self.header
 
     def createContent(self):
@@ -186,8 +184,6 @@ class MainWindow(QMainWindow):
         vert_layout = QVBoxLayout(self.footer)
         vert_layout.setContentsMargins(0, 0, 0, 0)
 
-        vert_layout.addStretch()
-
         # Create horizontal layout
         hor_layout = QHBoxLayout()
         hor_layout.setContentsMargins(0, 0, 0, 0)
@@ -214,9 +210,6 @@ class MainWindow(QMainWindow):
         # Create role label and add to horizontal layout
         role_label = QLabel(f"Rol: {self.userrole}")
         hor_layout.addWidget(role_label)
-
-        # Add stretch to push content to left of layout
-        hor_layout.addStretch()
 
         # Add the horizontal layout to vertical layout
         vert_layout.addLayout(hor_layout)

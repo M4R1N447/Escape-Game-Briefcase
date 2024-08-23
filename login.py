@@ -63,7 +63,7 @@ class LoginScreen(QWidget):
             40, 20, QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Minimum)
         layout.addItem(left_spacer)
 
-        # Add vertical stretch to center window on screen
+        # Add horizontal stretch to center window on screen
         layout.addStretch()
 
         # Create group box to hold login window elements
@@ -121,7 +121,7 @@ class LoginScreen(QWidget):
         # Add login box to layout
         layout.addWidget(login_box)
 
-        # Add vertical stretch to center window on screen
+        # Add horizontal stretch to center window on screen
         layout.addStretch()
 
         right_spacer = QSpacerItem(
