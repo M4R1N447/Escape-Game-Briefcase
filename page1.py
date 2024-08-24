@@ -69,45 +69,58 @@ class Page1(QWidget):
         introScreen Layout
         '''
 
-        # Create layout
-        layout = QHBoxLayout()
+        # Create main vertical layout
+        layout = QVBoxLayout()
 
-        # Create standard header layout
-        self.header_lyt = QVBoxLayout()
-
-        # Header Label Widget
+        # Create header layout and label widget
+        header_lyt = QHBoxLayout()
+        header_lyt.addStretch()
         header = Label(label="Mr Robot")
-        self.header_lyt.addWidget(header)
+        header.setObjectName("HeaderLblWidget")
+        header_lyt.addWidget(header)
+        header_lyt.addStretch()
+        layout.addLayout(header_lyt)
+
+        # Create title layout and label widget
+        title_lyt = QHBoxLayout()
+        title_lyt.addStretch()
+        title = Label(label="#FSOCIETY")
+        title.setObjectName("TitleLblWidget")
+        title_lyt.addWidget(title)
+        title_lyt.addStretch()
+        layout.addLayout(title_lyt)
+
+        # Add spacing between title label and splash label
+        layout.addSpacing(75)
+
+        # Create subtitle layout and label widget
+        splash_title_lyt = QHBoxLayout()
+        splash_title_lyt.addStretch()
+        splash_title = Label(label="ESCAPE GAME")
+        splash_title.setObjectName("SplashLblWidget")
+        splash_title_lyt.addWidget(splash_title)
+        splash_title_lyt.addStretch()
+        layout.addLayout(splash_title_lyt)
+
+
+
+        # Create button layout
+        button_lyt = QVBoxLayout()
+
+        # Add stretch to push footer to bottom of window
+        layout.addStretch()
 
         label = Label("ENTER")
         button = Button("Enter")
         button.clicked.connect(lambda: self.enter.emit())
-        self.header_lyt.addWidget(label)
-        self.header_lyt.addWidget(button)
+        button_lyt.addWidget(label)
+        button_lyt.addWidget(button)
 
-        layout.addLayout(self.header_lyt)
+        layout.addLayout(button_lyt)
 
         self.setLayout(layout)
 
-        # # Add spacing between header label and title label
-        # self.header_lyt.addSpacing(10)
 
-        # # Title Label Widget
-        # title = Label(label="#FSOCIETY")
-        # self.header_lyt.addWidget(title)
-
-        # # Add spacing between title label and splash label
-        # self.header_lyt.addSpacing(75)
-
-        # # Splash Label Widget
-        # header_lbl = Label(label=self.label)
-        # self.header_lyt.addWidget(header_lbl)
-
-        # self.setLayout(self.header_lyt)
-
-        # # Header Widget
-        # header = Label(label="ESCAPE GAME")
-        # self.intro_header_lyt.addWidget(header)
 
         # # Create intro screen image layout
         # self.intro_image_lyt = QHBoxLayout()

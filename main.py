@@ -16,6 +16,9 @@
 # Status: In Progress
 # ___________________________________________________________________
 
+# Imports
+import sys
+
 # PyQt6 Imports
 from PyQt6.QtWidgets import (QApplication,
                              QMainWindow,
@@ -26,6 +29,8 @@ from PyQt6.QtWidgets import (QApplication,
                              QSpacerItem,
                              QSizePolicy,
                              QLabel)
+
+from PyQt6.QtCore import Qt
 
 # Custom Imports
 from functions import createPath
@@ -48,6 +53,10 @@ class MainWindow(QMainWindow):
         self.username = "unknown"
         self.userrole = "unknown"
 
+        # Remove title bar and keep window on top
+        self.setWindowFlags(Qt.WindowType.FramelessWindowHint |
+                            Qt.WindowType.WindowStaysOnTopHint)
+
         # Create main window to hold layout
         main_window = QWidget()
 
@@ -61,29 +70,22 @@ class MainWindow(QMainWindow):
         self.loadTheme(theme="dark_theme.css")
 
         # Create main layout for main window
-        main_layout = QVBoxLayout(main_window)
-        main_layout.setContentsMargins(0, 0, 0, 0)
+        layout = QVBoxLayout(main_window)
+        layout.setContentsMargins(0, 0, 0, 0)
 
         # Create menu bar at top of screen
         self.createMenuBar()
 
-        # Create header and add to main layout
-        self.createHeader()
-        main_layout.addWidget(self.header)
-
-        # Add stretch to push header to top of window
-        main_layout.addStretch()
-
         # Create content and add to main layout
         self.createContent()
-        main_layout.addWidget(self.content)
-
-        # Add stretch to push footer to bottom of window
-        main_layout.addStretch()
+        layout.addWidget(self.content)
 
         # Create footer and add to main layout
         self.createFooter()
-        main_layout.addWidget(self.footer)
+        layout.addWidget(self.footer)
+
+        # Show the window in fullscreen mode
+        self.showFullScreen()
 
     def loadTheme(self, theme=None):
         """
@@ -122,26 +124,6 @@ class MainWindow(QMainWindow):
 
         # Set PyQt6 MenuBar to this object
         self.setMenuBar(menu_bar)
-
-    def createHeader(self):
-        '''
-        Create header
-        '''
-
-        # Create QWidget to hold layout
-        self.header = QWidget()
-
-        # Create layout
-        layout = QVBoxLayout(self.header)
-        layout.setContentsMargins(0, 0, 0, 0)
-
-        # Create horizontal layout
-        hor_layout = QHBoxLayout()
-        hor_layout.setContentsMargins(0, 0, 0, 0)
-
-        # Add the horizontal layout to layout
-        layout.addLayout(hor_layout)
-        return self.header
 
     def createContent(self):
         '''
@@ -230,9 +212,9 @@ class MainWindow(QMainWindow):
 
 # Start application
 if __name__ == "__main__":
-    app = QApplication([])
+    app = QApplication(sys.argv)
     window = MainWindow()
 
     # Maximize window with titlebar and top menu
     window.showMaximized()
-    app.exec()
+    sys.exit(app.exec())
