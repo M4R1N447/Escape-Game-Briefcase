@@ -1,50 +1,31 @@
-'''
-Program Name: Standard QT Framework
-
-Program Description:
-This is a basic QT framework which can be used to create a new program.
-This program is currently in development.
-
-File: page1.py
-Function: Page 1 example Window
-
-Author: Mario Kuijpers
-Version: 1.0
-Created: 03-06-2024
-Last Updated: 24-07-2024
-
-'''
-
-# Imports
-from PyQt6.QtWidgets import QWidget, QHBoxLayout
-from PyQt6.QtCore import pyqtSignal
+# ___________________________________________________________________
+#   ___     ____  __  .'`",.'`",.- WWW.MARIOKUIJPERS.COM -.'`",.'`",.
+#  |   \   /   | / /            .-.    .-.    ,.--.
+#  | |\ \ / /| |/ /  2024      | OO|  | OO|  /  _.-' .-. .-. .-. .''.
+#  | | \   / |    \  MARIO     |   |  |   |  \   '-. '-' '-' '-' '..'
+#  |_|  \_/  |_| \_\ KUIJPERS  '^^^'  '^^^'   `'--'
+# ___________________________________________________________________
+#
+# FILE: page1.py
+# INFO: Intro screen for Portable Escape Game in a briefcase
+#
+# Author: Mario Kuijpers
+# Start date: 03-06-2024
+# Last update: 25-08-2024
+# Github: https://github.com/M4R1N447/Escape-Game-Briefcase
+# Status: In Progress
+# ___________________________________________________________________
 
 # Import Qt Modules
-from PyQt6 import QtCore, QtGui
-from PyQt6.QtCore import Qt, QThread, pyqtSignal, QTimer
 from PyQt6.QtWidgets import (
-    QApplication,
-    QMainWindow,
-    QLayout,
     QHBoxLayout,
     QVBoxLayout,
-    QWidget,
-    QFrame)
+    QWidget
+    )
 
-from PyQt6.QtGui import (
-    QPixmap,
-    QFont,
-    QIntValidator)
+from PyQt6.QtCore import pyqtSignal
 
-from PyQt6.QtWidgets import (
-    QWidget,
-    QHBoxLayout,
-    QVBoxLayout,
-    QGridLayout,
-    QLabel,
-    QPushButton,
-    QLineEdit)
-
+# Custom Imports
 from widgets.buttonWidget import ButtonWidget as Button
 from widgets.labelWidget import LabelWidget as Label
 
@@ -102,25 +83,24 @@ class Page1(QWidget):
         splash_title_lyt.addStretch()
         layout.addLayout(splash_title_lyt)
 
-
-
-        # Create button layout
-        button_lyt = QVBoxLayout()
-
         # Add stretch to push footer to bottom of window
         layout.addStretch()
 
-        label = Label("ENTER")
+        # Create button layout and widget
+        button_lyt = QHBoxLayout()
+        button_lyt.addStretch()
         button = Button("Enter")
+        button.setObjectName("BigButtonWidget")
         button.clicked.connect(lambda: self.enter.emit())
-        button_lyt.addWidget(label)
         button_lyt.addWidget(button)
-
+        button_lyt.addStretch()
         layout.addLayout(button_lyt)
 
+        # Add spacing between button and bottom of screen
+        layout.addSpacing(150)
+
+        # Set layout
         self.setLayout(layout)
-
-
 
         # # Create intro screen image layout
         # self.intro_image_lyt = QHBoxLayout()

@@ -195,6 +195,7 @@ QLabel#TextLblWidget {
 }
 
 /* Pushbutton Style */
+/* Padding: Top - Right - Bot - Left */
 QPushButton {
     background-color: #3d3d5c;
     border: 1px solid #9900ff;
@@ -203,7 +204,7 @@ QPushButton {
     font-family: "Arcade";
     font-size: 20pt;
     text-align: center;
-    padding: 10px 0px 0px 0px;
+    padding: 10px 5px 5px 10px;
 }
 
 QPushButton#ButtonWidget:hover {
@@ -213,6 +214,29 @@ QPushButton#ButtonWidget:hover {
 }
 
 QPushButton#ButtonWidget:pressed {
+    background-color: #43c959;
+    color: #3d3d5c;
+    border: 1px solid #a179ea;
+}
+
+QPushButton#BigButtonWidget {
+    background-color: #3d3d5c;
+    border: 1px solid #9900ff;
+    border-radius: 8px;
+    color: #43c959;
+    font-family: "Arcade";
+    font-size: 20pt;
+    text-align: center;
+    padding: 20px 55px 15px 60px;
+}
+
+QPushButton#BigButtonWidget:hover {
+    background-color: #3d3d5c;
+    color: #a179ea;
+    border: 1px solid #43c959;
+}
+
+QPushButton#BigButtonWidget:pressed {
     background-color: #43c959;
     color: #3d3d5c;
     border: 1px solid #a179ea;

@@ -1,19 +1,20 @@
-'''
-Program Name: Standard QT Framework
-
-Program Description:
-This is a basic QT framework which can be used to create a new program.
-This program is currently in development.
-
-File: page3.py
-Function: Page 3 example Window
-
-Author: Mario Kuijpers
-Version: 1.0
-Created: 03-06-2024
-Last Updated: 24-07-2024
-
-'''
+# ___________________________________________________________________
+#   ___     ____  __  .'`",.'`",.- WWW.MARIOKUIJPERS.COM -.'`",.'`",.
+#  |   \   /   | / /            .-.    .-.    ,.--.
+#  | |\ \ / /| |/ /  2024      | OO|  | OO|  /  _.-' .-. .-. .-. .''.
+#  | | \   / |    \  MARIO     |   |  |   |  \   '-. '-' '-' '-' '..'
+#  |_|  \_/  |_| \_\ KUIJPERS  '^^^'  '^^^'   `'--'
+# ___________________________________________________________________
+#
+# FILE: page3.py
+# INFO: Intro screen for Portable Escape Game in a briefcase
+#
+# Author: Mario Kuijpers
+# Start date: 03-06-2024
+# Last update: 25-08-2024
+# Github: https://github.com/M4R1N447/Escape-Game-Briefcase
+# Status: In Progress
+# ___________________________________________________________________
 
 # Imports
 from PyQt6.QtWidgets import QWidget, QHBoxLayout, QLabel, QPushButton
