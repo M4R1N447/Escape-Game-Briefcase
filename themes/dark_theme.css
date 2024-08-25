@@ -135,14 +135,21 @@ KEY_COLOR = YELLOW
     font-family: "Verdana";
     font-size: 10pt;
     margin: 0px 0px 0px 0px;
+    border: 0px;
 }
 
 /* Main Window Style */
 QMainWindow { 
     margin: 0px 0px 0px 0px;
-    border: 1px solid #1f1f2e;
+    border: 1px solid #00e600;
     border-radius: 8px;
 }
+
+QFrame {
+    background-color: #0a0a0f;
+    border: 1px solid #00e600;
+    border-radius: 8px;
+}      
 
 /* Label Style */
 QLabel {
@@ -150,6 +157,7 @@ QLabel {
     font-size: 12pt;
     font-family: "Share Tech Regular";
     margin: 0px 0px 0px 0px;
+    border: 0px;
 }
 
 QLabel#HeaderLblWidget {
@@ -157,6 +165,7 @@ QLabel#HeaderLblWidget {
     font-size: 80px;
     font-family: "MrRobot";
     margin: 0px 0px 0px 0px;
+    border: 0px;
 }
 
 QLabel#TitleLblWidget {
@@ -164,6 +173,7 @@ QLabel#TitleLblWidget {
     font-size: 60px;
     font-family: "MrRobot";
     margin: 0px 0px 0px 0px;
+    border: 0px;
 }
 
 QLabel#SubTitleLblWidget {
@@ -171,6 +181,7 @@ QLabel#SubTitleLblWidget {
     font-size: 20px;
     font-family: "Share Tech Regular";
     margin: 0px 0px 0px 0px;
+    border: 0px;
 }
 
 QLabel#SplashLblWidget {
@@ -178,6 +189,7 @@ QLabel#SplashLblWidget {
     font-size: 40px;
     font-family: "Arcade";
     margin: 0px 0px 0px 0px;
+    border: 0px;
 }
 
 QLabel#WarningLblWidget {
@@ -185,6 +197,7 @@ QLabel#WarningLblWidget {
     font-size: 20px;
     font-family: "Share Tech Regular";
     margin: 0px 0px 0px 0px;
+    border: 0px;
 }
 
 QLabel#TextLblWidget {
@@ -192,6 +205,7 @@ QLabel#TextLblWidget {
     font-size: 14px;
     font-family: "Share Tech Regular";
     margin: 0px 0px 0px 0px;
+    border: 0px;
 }
 
 /* Pushbutton Style */

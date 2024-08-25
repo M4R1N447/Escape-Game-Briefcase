@@ -11,7 +11,7 @@
 #
 # Author: Mario Kuijpers
 # Start date: 06-01-2021
-# Last update: 09-08-2024
+# Last update: 25-08-2024
 # Github: https://github.com/M4R1N447/Escape-Game-Briefcase
 # Status: In Progress
 # ___________________________________________________________________
@@ -55,13 +55,13 @@ class MainWindow(QMainWindow):
 
         # Remove title bar and keep window on top
         self.setWindowFlags(Qt.WindowType.FramelessWindowHint |
-                            Qt.WindowType.WindowStaysOnTopHint)
+                            Qt.WindowType.WindowStaysOnTopHint |
+                            Qt.WindowType.MaximizeUsingFullscreenGeometryHint)
 
-        # Create main window to hold layout
-        main_window = QWidget()
-
-        # Set main window as central widget
-        self.setCentralWidget(main_window)
+        # Get screen dimensions
+        self.screen_height = QApplication.primaryScreen().size().height()
+        self.screen_width = QApplication.primaryScreen().size().width()
+        self.screen_dimensions = (self.screen_width, self.screen_height)
 
         # Set window title
         self.setWindowTitle("Portable Escape Game")
@@ -69,12 +69,15 @@ class MainWindow(QMainWindow):
         # Load initial theme
         self.loadTheme(theme="dark_theme.css")
 
+        # Create menu bar at top of screen
+        self.createMenuBar()
+
+        # Create main window widget to hold layout
+        main_window = QWidget()
+
         # Create main layout for main window
         layout = QVBoxLayout(main_window)
         layout.setContentsMargins(0, 0, 0, 0)
-
-        # Create menu bar at top of screen
-        self.createMenuBar()
 
         # Create content and add to main layout
         self.createContent()
@@ -83,6 +86,9 @@ class MainWindow(QMainWindow):
         # Create footer and add to main layout
         self.createFooter()
         layout.addWidget(self.footer)
+
+        # Set main window as central widget
+        self.setCentralWidget(main_window)
 
         # Show the window in fullscreen mode
         self.showFullScreen()
@@ -134,7 +140,7 @@ class MainWindow(QMainWindow):
         self.content = QStackedWidget()
 
         # Create page 1 content widget and connect signals to slots
-        self.page1 = Page1(self)
+        self.page1 = Page1(self, screen_dimensions=self.screen_dimensions)
         self.content.addWidget(self.page1)
         self.page1.enter.connect(lambda: self.switchContent("loginScreen"))
 
@@ -164,11 +170,11 @@ class MainWindow(QMainWindow):
 
         # Create vertical layout
         vert_layout = QVBoxLayout(self.footer)
-        vert_layout.setContentsMargins(0, 0, 0, 0)
+        vert_layout.setContentsMargins(0, 0, 0, 2)
 
         # Create horizontal layout
         hor_layout = QHBoxLayout()
-        hor_layout.setContentsMargins(0, 0, 0, 0)
+        hor_layout.setContentsMargins(0, 0, 0, 2)
 
         # Create labels and add to horizontal layout
         playername = Label(font_size=12, label="Player: ")
@@ -215,6 +221,6 @@ if __name__ == "__main__":
     app = QApplication(sys.argv)
     window = MainWindow()
 
-    # Maximize window with titlebar and top menu
-    window.showMaximized()
+    # Show window in fullscreen mode
+    window.showFullScreen()
     sys.exit(app.exec())
