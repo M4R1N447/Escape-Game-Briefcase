@@ -29,8 +29,8 @@ from PyQt6.QtCore import Qt
 from PyQt6.QtGui import QShortcut, QKeySequence
 
 # Custom Imports
-from widgets.labelWidget import LabelWidget as Label
-from widgets.buttonWidget import ButtonWidget as Button
+from gui.widgets.labelWidget import LabelWidget as Label
+from gui.widgets.buttonWidget import ButtonWidget as Button
 
 
 class LoginScreen(QWidget):

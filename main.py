@@ -34,12 +34,12 @@ from PyQt6.QtCore import Qt
 
 # Custom Imports
 from functions import createPath
-from menuBar import MenuBar
-from login import LoginScreen
-from page1 import Page1
-from page2 import Page2
-from page3 import Page3
-from widgets.labelWidget import LabelWidget as Label
+from gui.menuBar import MenuBar
+from gui.login import LoginScreen
+from gui.page1 import Page1
+from gui.page2 import Page2
+from gui.page3 import Page3
+from gui.widgets.labelWidget import LabelWidget as Label
 
 
 class MainWindow(QMainWindow):

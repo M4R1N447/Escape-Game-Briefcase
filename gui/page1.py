@@ -27,9 +27,9 @@ from PyQt6.QtCore import pyqtSignal
 from PyQt6.QtGui import QShortcut, QKeySequence
 
 # Custom Imports
-from widgets.buttonWidget import ButtonWidget as Button
-from widgets.labelWidget import LabelWidget as Label
-from widgets.imageWidget import ImageWidget as Image
+from gui.widgets.buttonWidget import ButtonWidget as Button
+from gui.widgets.labelWidget import LabelWidget as Label
+from gui.widgets.imageWidget import ImageWidget as Image
 
 # Custom Imports
 from functions import createPath

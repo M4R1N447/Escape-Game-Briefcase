@@ -10,3 +10,8 @@ widgets/__pycache__/buttonWidget.cpython-312.pyc
 widgets/__pycache__/labelWidget.cpython-312.pyc
 __pycache__/page1.cpython-312.pyc
 widgets/__pycache__/imageWidget.cpython-312.pyc
+gui/widgets/__pycache__/mainWidgets.cpython-312.pyc
+gui/widgets/__pycache__/labelWidget.cpython-312.pyc
+gui/widgets/__pycache__/imageWidget.cpython-312.pyc
+gui/widgets/__pycache__/buttonWidget.cpython-312.pyc
+gui/widgets/__pycache__/__init__.cpython-312.pyc
