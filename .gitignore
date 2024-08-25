@@ -22,3 +22,4 @@ gui/__pycache__/menuBar.cpython-312.pyc
 gui/__pycache__/login.cpython-312.pyc
 gui/__pycache__/__init__.cpython-312.pyc
 .gitignore
+gui/__pycache__/introScreen.cpython-312.pyc

@@ -21,8 +21,6 @@ from PyQt6.QtWidgets import (QWidget,
                              QVBoxLayout,
                              QHBoxLayout,
                              QGroupBox,
-                             QSpacerItem,
-                             QSizePolicy,
                              QLineEdit)
 from PyQt6.QtCore import pyqtSignal
 from PyQt6.QtCore import Qt
@@ -41,11 +39,12 @@ class LoginScreen(QWidget):
     # Define signals which can be emitted to the main window
     login_successful = pyqtSignal(str, str)
 
-    def __init__(self, main_window, window_width=400):
+    def __init__(self, main_window, window_width=400, input_height=30):
         super().__init__()
 
         self.main_window = main_window
         self.window_width = window_width
+        self.input_height = input_height
         self.setObjectName("loginScreen")
 
         # Show login screen
@@ -57,18 +56,53 @@ class LoginScreen(QWidget):
         '''
 
         # Create layout
-        layout = QHBoxLayout()
+        layout = QVBoxLayout()
 
-        left_spacer = QSpacerItem(
-            40, 20, QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Minimum)
-        layout.addItem(left_spacer)
+        # Add spacing between top of screen and header label
+        layout.addSpacing(20)
 
-        # Add horizontal stretch to center window on screen
-        layout.addStretch()
+        # Create header layout and label widget
+        header_lyt = QHBoxLayout()
+        header_lyt.addStretch()
+        header = Label(label="Mr Robot")
+        header.setObjectName("HeaderLblWidget")
+        header_lyt.addWidget(header)
+        header_lyt.addStretch()
+        layout.addLayout(header_lyt)
+
+        # Add spacing between header label and title label
+        layout.addSpacing(25)
+
+        # Create title layout and label widget
+        title_lyt = QHBoxLayout()
+        title_lyt.addStretch()
+        title = Label(label="#FSOCIETY")
+        title.setObjectName("TitleLblWidget")
+        title_lyt.addWidget(title)
+        title_lyt.addStretch()
+        layout.addLayout(title_lyt)
+
+        # Add spacing between title label and splash label
+        layout.addSpacing(70)
+
+        # Create splash title layout and label widget
+        splash_title_lyt = QHBoxLayout()
+        splash_title_lyt.addStretch()
+        splash_title = Label(label="LOGIN TO ENTER THE GAME")
+        splash_title.setObjectName("SplashLblWidget")
+        splash_title_lyt.addWidget(splash_title)
+        splash_title_lyt.addStretch()
+        layout.addLayout(splash_title_lyt)
+
+        # Add spacing between splash title label and image
+        layout.addSpacing(25)
+
+        login_hor_lyt = QHBoxLayout()
+        login_hor_lyt.addStretch()
 
         # Create group box to hold login window elements
         login_box = QGroupBox()
-        login_box.setFixedWidth(self.window_width)
+        login_box.setMinimumWidth(self.window_width)
         login_box.setObjectName("loginScreenGroupBox")
         login_box_lyt = QVBoxLayout(login_box)
 
@@ -84,6 +118,8 @@ class LoginScreen(QWidget):
 
         # Create username input field
         self.username_input = QLineEdit()
+        self.username_input.setMinimumWidth(self.window_width)
+        self.username_input.setMinimumHeight(self.input_height)
         login_box_lyt.addWidget(
             self.username_input, 0, Qt.AlignmentFlag.AlignCenter)
 
@@ -96,18 +132,20 @@ class LoginScreen(QWidget):
 
         # Create password input field
         self.password_input = QLineEdit()
+        self.password_input.setMinimumWidth(self.window_width)
+        self.password_input.setMinimumHeight(self.input_height)
         self.password_input.setEchoMode(QLineEdit.EchoMode.Password)
         login_box_lyt.addWidget(
             self.password_input, 0, Qt.AlignmentFlag.AlignCenter)
 
-        # Add vertical stretch
-        login_box_lyt.addStretch()
+        # Add spacing between splash title label and image
+        login_box_lyt.addSpacing(20)
 
         # Create login button
         self.login_button = Button(
             label="Login",
-            height=30,
-            width=100,
+            height=40,
+            width=150,
             active=True,
             action=self.login)
 
@@ -118,15 +156,14 @@ class LoginScreen(QWidget):
         login_box_lyt.addWidget(
             self.login_button, 0, Qt.AlignmentFlag.AlignCenter)
 
+        login_hor_lyt.addWidget(login_box)
+        login_hor_lyt.addStretch()
+
         # Add login box to layout
-        layout.addWidget(login_box)
+        layout.addLayout(login_hor_lyt)
 
         # Add horizontal stretch to center window on screen
         layout.addStretch()
-
-        right_spacer = QSpacerItem(
-            40, 20, QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Minimum)
-        layout.addItem(right_spacer)
 
         # Set layout
         self.setLayout(layout)

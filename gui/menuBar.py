@@ -28,6 +28,7 @@ class MenuBar(QMenuBar):
 
     # Define signals which can be emitted to the main window
     exit = pyqtSignal()
+    intro = pyqtSignal()
     login = pyqtSignal()
     page2 = pyqtSignal()
     page3 = pyqtSignal()
@@ -44,6 +45,11 @@ class MenuBar(QMenuBar):
 
         # Create Pages menu with some example pages
         page_menu = QMenu("Pages", self)
+
+        intro = QAction("Intro Screen", self)
+        intro.triggered.connect(lambda: self.intro.emit())
+        page_menu.addAction(intro)
+
         login = QAction("Login Screen", self)
         login.triggered.connect(lambda: self.login.emit())
         page_menu.addAction(login)

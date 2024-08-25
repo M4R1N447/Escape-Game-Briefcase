@@ -36,7 +36,7 @@ from PyQt6.QtCore import Qt
 from functions import createPath
 from gui.menuBar import MenuBar
 from gui.login import LoginScreen
-from gui.page1 import Page1
+from gui.introScreen import IntroScreen
 from gui.page2 import Page2
 from gui.page3 import Page3
 from gui.widgets.labelWidget import LabelWidget as Label
@@ -124,6 +124,7 @@ class MainWindow(QMainWindow):
 
         # Connect incoming signals from menuBar.py to their slots
         menu_bar.exit.connect(self.close)
+        menu_bar.intro.connect(lambda: self.switchContent("introScreen"))
         menu_bar.login.connect(lambda: self.switchContent("loginScreen"))
         menu_bar.page2.connect(lambda: self.switchContent("Page 2"))
         menu_bar.page3.connect(lambda: self.switchContent("Page 3"))
@@ -139,10 +140,13 @@ class MainWindow(QMainWindow):
         # Create stacked widget for content
         self.content = QStackedWidget()
 
-        # Create page 1 content widget and connect signals to slots
-        self.page1 = Page1(self, screen_dimensions=self.screen_dimensions)
-        self.content.addWidget(self.page1)
-        self.page1.enter.connect(lambda: self.switchContent("loginScreen"))
+        # Create intro screen content widget and connect signals to slots
+        self.intro_screen = IntroScreen(
+            self,
+            screen_dimensions=self.screen_dimensions)
+        self.content.addWidget(self.intro_screen)
+        self.intro_screen.enter.connect(
+            lambda: self.switchContent("loginScreen"))
 
         self.login = LoginScreen(self)
         self.content.addWidget(self.login)

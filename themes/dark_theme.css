@@ -269,13 +269,13 @@ QLineEdit{
 /* Image Style */
 #ImageWidget QLabel {
     margin: 0px 0px 0px 0px;
-    border: 1px solid #2c2140;
-    border-radius: 5px;
+    border: 1px solid #43c959;
+    border-radius: 3px;
 }
 
 /* Groupbox Style */
 QGroupBox {
     margin: 0px 0px 0px 0px;
-    border: 1px solid #43c959;
+    border: 0px solid #43c959;
     border-radius: 8px;
 }

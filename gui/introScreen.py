@@ -6,7 +6,7 @@
 #  |_|  \_/  |_| \_\ KUIJPERS  '^^^'  '^^^'   `'--'
 # ___________________________________________________________________
 #
-# FILE: page1.py
+# FILE: introScreen.py
 # INFO: Intro screen for Portable Escape Game in a briefcase
 #
 # Author: Mario Kuijpers
@@ -35,7 +35,7 @@ from gui.widgets.imageWidget import ImageWidget as Image
 from functions import createPath
 
 
-class Page1(QWidget):
+class IntroScreen(QWidget):
 
     # Define signals which can be emitted to the main window
     exit = pyqtSignal()
@@ -45,7 +45,7 @@ class Page1(QWidget):
         super().__init__()
 
         self.main_window = main_window
-        self.setObjectName("Page 1")
+        self.setObjectName("introScreen")
         self.screen_width = screen_dimensions[0]
         self.screen_height = screen_dimensions[1]
 
@@ -60,6 +60,9 @@ class Page1(QWidget):
         # Create main vertical layout
         layout = QVBoxLayout()
 
+        # Add spacing between top of screen and header label
+        layout.addSpacing(20)
+
         # Create header layout and label widget
         header_lyt = QHBoxLayout()
         header_lyt.addStretch()
@@ -68,6 +71,9 @@ class Page1(QWidget):
         header_lyt.addWidget(header)
         header_lyt.addStretch()
         layout.addLayout(header_lyt)
+
+        # Add spacing between header label and title label
+        layout.addSpacing(25)
 
         # Create title layout and label widget
         title_lyt = QHBoxLayout()
@@ -79,7 +85,7 @@ class Page1(QWidget):
         layout.addLayout(title_lyt)
 
         # Add spacing between title label and splash label
-        layout.addSpacing(50)
+        layout.addSpacing(70)
 
         # Create splash title layout and label widget
         splash_title_lyt = QHBoxLayout()
@@ -99,9 +105,7 @@ class Page1(QWidget):
         image_file = createPath("images/") + str("mrrobot_small.jpg")
         image = Image(
             image_path=image_file,
-            image_height=int(self.screen_height/4),
-            border=1,
-            border_color="#9900ff")
+            image_height=int(self.screen_height/4))
         image.setObjectName("ImageWidget")
         image_lyt.addWidget(image)
         image_lyt.addStretch()
