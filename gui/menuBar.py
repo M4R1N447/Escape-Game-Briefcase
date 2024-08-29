@@ -30,6 +30,7 @@ class MenuBar(QMenuBar):
     exit = pyqtSignal()
     intro = pyqtSignal()
     login = pyqtSignal()
+    menu = pyqtSignal()
     page2 = pyqtSignal()
     page3 = pyqtSignal()
 
@@ -53,6 +54,10 @@ class MenuBar(QMenuBar):
         login = QAction("Login Screen", self)
         login.triggered.connect(lambda: self.login.emit())
         page_menu.addAction(login)
+
+        menu = QAction("Menu Screen", self)
+        menu.triggered.connect(lambda: self.menu.emit())
+        page_menu.addAction(menu)
 
         page2 = QAction("Page 2", self)
         page2.triggered.connect(lambda: self.page2.emit())

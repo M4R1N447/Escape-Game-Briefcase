@@ -21,7 +21,7 @@
 from PyQt6.QtWidgets import (QWidget, QGridLayout)
 
 # Custom Imports
-from widgets.buttonWidget import ButtonWidget as Button
+from gui.widgets.buttonWidget import ButtonWidget as Button
 
 
 class ButtonGridWidget(QWidget):

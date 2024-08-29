@@ -35,8 +35,9 @@ from PyQt6.QtCore import Qt
 # Custom Imports
 from functions import createPath
 from gui.menuBar import MenuBar
-from gui.login import LoginScreen
 from gui.introScreen import IntroScreen
+from gui.login import LoginScreen
+from gui.menuScreen import MenuScreen
 from gui.page2 import Page2
 from gui.page3 import Page3
 from gui.widgets.labelWidget import LabelWidget as Label
@@ -126,6 +127,7 @@ class MainWindow(QMainWindow):
         menu_bar.exit.connect(self.close)
         menu_bar.intro.connect(lambda: self.switchContent("introScreen"))
         menu_bar.login.connect(lambda: self.switchContent("loginScreen"))
+        menu_bar.menu.connect(lambda: self.switchContent("menuScreen"))
         menu_bar.page2.connect(lambda: self.switchContent("Page 2"))
         menu_bar.page3.connect(lambda: self.switchContent("Page 3"))
 
@@ -153,6 +155,12 @@ class MainWindow(QMainWindow):
         self.login.login_successful.connect(
             lambda: self.switchContent("Page 3"))
         # Connect login_successful signal to set_user slot
+
+        # Create intro screen content widget and connect signals to slots
+        self.menu_screen = MenuScreen(self)
+        self.content.addWidget(self.menu_screen)
+        self.menu_screen.enter.connect(
+            lambda: self.switchContent("menuScreen"))
 
         # Create page 2 content widget and connect signals to slots
         self.page2 = Page2(self)

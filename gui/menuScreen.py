@@ -18,23 +18,16 @@
 
 
 # PyQt6 Imports
-from PyQt6.QtWidgets import (QWidget, QGridLayout)
+from PyQt6.QtWidgets import (QWidget,
+                             QVBoxLayout)
 
-# PyQt6 Imports
-from PyQt6.QtWidgets import (QApplication,
-                             QMainWindow,
-                             QWidget,
-                             QStackedWidget,
-                             QVBoxLayout,
-                             QHBoxLayout,
-                             QSpacerItem,
-                             QSizePolicy,
-                             QLabel)
+from PyQt6.QtCore import pyqtSignal
+from PyQt6.QtGui import QShortcut, QKeySequence
 
-from PyQt6.QtCore import Qt
 
 # Custom Imports
-from widgets.buttonGridWidget import ButtonGridWidget as ButtonGrid
+from gui.widgets.buttonGridWidget import ButtonGridWidget as ButtonGrid
+from gui.widgets.headerWidget import HeaderWidget as Header
 
 
 class MenuScreen(QWidget):
@@ -42,9 +35,16 @@ class MenuScreen(QWidget):
     Menu Screen Widget
     Create a complete menu screen with header, buttons and bottom buttons
     '''
+
+    # Define signals which can be emitted to the main window
+    exit = pyqtSignal()
+    enter = pyqtSignal()
+
     def __init__(self,
-                 object_name: str = "MenuScreen",
-                 header_label: str = None,
+                 object_name: str = "menuScreen",
+                 header_label: str = "Mr Robot",
+                 title_label: str = "#FSOCIETY",
+                 splash_label: str = "ESCAPE GAME",
                  menu_buttons: dict = None,
                  bottom_buttons: dict = None,
                  menu_btn_columns: int = 3,
@@ -58,6 +58,8 @@ class MenuScreen(QWidget):
 
         self.object_name = object_name
         self.header_label = header_label
+        self.title_label = title_label
+        self.splash_label = splash_label
         self.menu_buttons = menu_buttons
         self.bottom_buttons = bottom_buttons
         self.menu_btn_columns = menu_btn_columns
@@ -68,13 +70,13 @@ class MenuScreen(QWidget):
         self.bot_screen_spacing = bot_screen_spacing
 
         # Set object name for styling
-        self.setObjectName(self.object_name)
+        self.setObjectName("menuScreen")
 
         # Create menu screen layout
         self.menu_screen_lyt = QVBoxLayout()
 
         # Header Widget
-        header = HeaderWidget(label=self.header_label)
+        header = Header()
         self.menu_screen_lyt.addWidget(header)
 
         # Add stretch between header and menu buttons
