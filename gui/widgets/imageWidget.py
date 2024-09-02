@@ -6,12 +6,12 @@
 #  |_|  \_/  |_| \_\ KUIJPERS  '^^^'  '^^^'   `'--'
 # ___________________________________________________________________
 #
-# FILE: widgets\imageWidget.py
+# FILE: gui\widgets\imageWidget.py
 # INFO: Image Widget Class for Portable Escape Game
 #
 # Author: Mario Kuijpers
 # Start date: 11-08-2024
-# Last update: 11-08-2024
+# Last update: 02-09-2024
 # Github: https://github.com/M4R1N447/Escape-Game-Briefcase
 # Status: In Progress
 # ___________________________________________________________________

@@ -6,12 +6,12 @@
 #  |_|  \_/  |_| \_\ KUIJPERS  '^^^'  '^^^'   `'--'
 # ___________________________________________________________________
 #
-# FILE: widgets\buttonWidget.py
+# FILE: gui\widgets\buttonWidget.py
 # INFO: Button Widget Class for Portable Escape Game
 #
 # Author: Mario Kuijpers
 # Start date: 09-08-2024
-# Last update: 11-08-2024
+# Last update: 02-09-2024
 # Github: https://github.com/M4R1N447/Escape-Game-Briefcase
 # Status: In Progress
 # ___________________________________________________________________
@@ -26,7 +26,9 @@ class ButtonWidget(QPushButton):
     '''
     Button widget Class
     '''
+
     def __init__(self,
+                 object_name: str = "ButtonWidget",
                  label: str = "",
                  height: int = 0,
                  width: int = 0,
@@ -37,6 +39,7 @@ class ButtonWidget(QPushButton):
         # Set object name for styling
         self.setObjectName("ButtonWidget")
 
+        self.object_name = object_name
         self.label = label
         self.active = active
         self.action = action

@@ -41,7 +41,6 @@ class MenuScreen(QWidget):
     enter = pyqtSignal()
 
     def __init__(self,
-                 object_name: str = "menuScreen",
                  header_label: str = "Mr Robot",
                  title_label: str = "#FSOCIETY",
                  splash_label: str = "ESCAPE GAME",
@@ -56,7 +55,6 @@ class MenuScreen(QWidget):
                  *args, **kwargs):
         super().__init__(*args, **kwargs)
 
-        self.object_name = object_name
         self.header_label = header_label
         self.title_label = title_label
         self.splash_label = splash_label

@@ -6,12 +6,12 @@
 #  |_|  \_/  |_| \_\ KUIJPERS  '^^^'  '^^^'   `'--'
 # ___________________________________________________________________
 #
-# FILE: introScreen.py
+# FILE: gui\introScreen.py
 # INFO: Intro screen for Portable Escape Game in a briefcase
 #
 # Author: Mario Kuijpers
 # Start date: 03-06-2024
-# Last update: 25-08-2024
+# Last update: 02-09-2024
 # Github: https://github.com/M4R1N447/Escape-Game-Briefcase
 # Status: In Progress
 # ___________________________________________________________________
@@ -144,8 +144,9 @@ class IntroScreen(QWidget):
         # Create button layout and widget
         button_lyt = QHBoxLayout()
         button_lyt.addStretch()
-        button = Button("START")
-        button.setObjectName("BigButtonWidget")
+        button = Button(object_name="BigButtonWidget",
+                        label="START",
+                        width=200)
         button.clicked.connect(lambda: self.enter.emit())
 
         # Create shortcut for the Enter key
