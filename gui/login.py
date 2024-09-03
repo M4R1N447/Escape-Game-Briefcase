@@ -11,7 +11,7 @@
 #
 # Author: Mario Kuijpers
 # Start date: 03-06-2024
-# Last update: 11-08-2024
+# Last update: 03-09-2024
 # Github: https://github.com/M4R1N447/Escape-Game-Briefcase
 # Status: In Progress
 # ___________________________________________________________________
@@ -22,13 +22,14 @@ from PyQt6.QtWidgets import (QWidget,
                              QHBoxLayout,
                              QGroupBox,
                              QLineEdit)
-from PyQt6.QtCore import pyqtSignal
-from PyQt6.QtCore import Qt
+
+from PyQt6.QtCore import Qt, pyqtSignal
 from PyQt6.QtGui import QShortcut, QKeySequence
 
 # Custom Imports
 from gui.widgets.labelWidget import LabelWidget as Label
 from gui.widgets.buttonWidget import ButtonWidget as Button
+from gui.widgets.headerWidget import HeaderWidget as Header
 
 
 class LoginScreen(QWidget):
@@ -58,41 +59,12 @@ class LoginScreen(QWidget):
         # Create layout
         layout = QVBoxLayout()
 
-        # Add spacing between top of screen and header label
-        layout.addSpacing(20)
-
-        # Create header layout and label widget
-        header_lyt = QHBoxLayout()
-        header_lyt.addStretch()
-        header = Label(label="Mr Robot")
-        header.setObjectName("HeaderLblWidget")
-        header_lyt.addWidget(header)
-        header_lyt.addStretch()
-        layout.addLayout(header_lyt)
-
-        # Add spacing between header label and title label
-        layout.addSpacing(25)
-
-        # Create title layout and label widget
-        title_lyt = QHBoxLayout()
-        title_lyt.addStretch()
-        title = Label(label="#FSOCIETY")
-        title.setObjectName("TitleLblWidget")
-        title_lyt.addWidget(title)
-        title_lyt.addStretch()
-        layout.addLayout(title_lyt)
-
-        # Add spacing between title label and splash label
-        layout.addSpacing(70)
-
-        # Create splash title layout and label widget
-        splash_title_lyt = QHBoxLayout()
-        splash_title_lyt.addStretch()
-        splash_title = Label(label="LOGIN TO ENTER THE GAME")
-        splash_title.setObjectName("SplashLblWidget")
-        splash_title_lyt.addWidget(splash_title)
-        splash_title_lyt.addStretch()
-        layout.addLayout(splash_title_lyt)
+        # Header Widget
+        header = Header(
+            header_label="Mr Robot",
+            title_label="#FSOCIETY",
+            splash_label="LOGIN TO ENTER THE GAME")
+        layout.addWidget(header)
 
         # Add spacing between splash title label and image
         layout.addSpacing(25)

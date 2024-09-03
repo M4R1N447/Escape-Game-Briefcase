@@ -11,7 +11,7 @@
 #
 # Author: Mario Kuijpers
 # Start date: 06-01-2021
-# Last update: 25-08-2024
+# Last update: 03-09-2024
 # Github: https://github.com/M4R1N447/Escape-Game-Briefcase
 # Status: In Progress
 # ___________________________________________________________________
@@ -153,32 +153,24 @@ class MainWindow(QMainWindow):
         self.login = LoginScreen(self)
         self.content.addWidget(self.login)
         self.login.login_successful.connect(
-            lambda: self.switchContent("menuScreen"))
+            lambda: self.switchContent("mainMenu"))
         # Connect login_successful signal to set_user slot
 
-        # Create intro screen content widget and connect signals to slots
-        menu_buttons = [
-            {"name": "btn1", "label": "Puzzle Menu", "action": lambda: self.switchContent("introScreen")},
-            {"name": "btn2", "label": "Tool Menu", "action": lambda: self.switchContent("loginScreen")},
-            {"name": "btn3", "label": "Media Menu", "action":lambda: self.switchContent("loginScreen")},
-            {"name": "btn4", "label": "Button 4", "action": lambda: self.switchContent("loginScreen")},
-            {"name": "btn5", "label": "Button 5", "action": lambda: self.switchContent("loginScreen")},
-            {"name": "btn6", "label": "Button 6", "action": lambda: self.switchContent("loginScreen")},
-            {"name": "btn7", "label": "Button 7", "action": lambda: self.switchContent("loginScreen")},
-            {"name": "btn8", "label": "Button 8", "action": lambda: self.switchContent("loginScreen")},
-            {"name": "btn9", "label": "Button 9", "action": lambda: self.switchContent("loginScreen")}]
+        # Create main menu widget
+        self.main_menu_screen = self.createMainMenu()
+        self.content.addWidget(self.main_menu_screen)
 
-        bottom_buttons = [
-            {"name": "back", "label": "Back", "action": lambda: self.switchContent("Page 2")},
-            {"name": "exit", "label": "Exit", "action": lambda: self.switchContent("Page 3")}]
+        # Create puzzle menu widget
+        self.puzzle_menu = self.createPuzzleMenu()
+        self.content.addWidget(self.puzzle_menu)
 
-        # Create puzzle menu screen
-        self.menu_screen = MenuScreen(
-            self,
-            splash_label="MAIN MENU",
-            menu_buttons=menu_buttons,
-            bottom_buttons=bottom_buttons)
-        self.content.addWidget(self.menu_screen)
+        # Create puzzle menu widget
+        self.tool_menu = self.createToolMenu()
+        self.content.addWidget(self.tool_menu)
+
+        # Create media menu widget
+        self.media_menu = self.createMediaMenu()
+        self.content.addWidget(self.media_menu)
 
         # Create page 2 content widget and connect signals to slots
         self.page2 = Page2(self)
@@ -189,6 +181,118 @@ class MainWindow(QMainWindow):
         self.page3 = Page3(self)
         self.content.addWidget(self.page3)
         self.page3.page3.connect(lambda: self.switchContent("Page 3"))
+
+    def createMainMenu(self):
+        # Create button list for Main Menu
+        main_menu_buttons = [
+            {"id": "btn1", "lbl": "Puzzle Menu", "action": lambda: self.switchContent("puzzleMenu")},
+            {"id": "btn2", "lbl": "Tool Menu", "action": lambda: self.switchContent("toolMenu")},
+            {"id": "btn3", "lbl": "Media Menu", "action": lambda: self.switchContent("mediaMenu")},
+            {"id": "btn4", "lbl": "Button 4", "action": lambda: self.switchContent("loginScreen")},
+            {"id": "btn5", "lbl": "Button 5", "action": lambda: self.switchContent("loginScreen")},
+            {"id": "btn6", "lbl": "Button 6", "action": lambda: self.switchContent("loginScreen")},
+            {"id": "btn7", "lbl": "Button 7", "action": lambda: self.switchContent("loginScreen")},
+            {"id": "btn8", "lbl": "Button 8", "action": lambda: self.switchContent("loginScreen")},
+            {"id": "btn9", "lbl": "Button 9", "action": lambda: self.switchContent("loginScreen")}]
+
+        # Create button list for Main Menu bottom buttons
+        main_menu_bottom_buttons = [
+            {"id": "back", "lbl": "Back", "action": lambda: self.switchContent("loginScreen")},
+            {"id": "exit", "lbl": "Exit", "action": lambda: self.switchContent("introScreen")}]
+
+        # Create Main Menu screen with all buttons
+        self.main_menu_screen = MenuScreen(
+            object_name="mainMenu",
+            header_label="Mr Robot",
+            title_label="#FSOCIETY",
+            splash_label="MAIN MENU",
+            menu_buttons=main_menu_buttons,
+            bottom_buttons=main_menu_bottom_buttons)
+        return self.main_menu_screen
+
+    def createPuzzleMenu(self):
+        # Create button list for Puzzle Menu
+        puzzle_menu_buttons = [
+            {"id": "btn1", "lbl": "Puzzle 1", "action": lambda: self.switchContent("loginScreen")},
+            {"id": "btn2", "lbl": "Puzzle 2", "action": lambda: self.switchContent("loginScreen")},
+            {"id": "btn3", "lbl": "Puzzle 3", "action": lambda: self.switchContent("loginScreen")},
+            {"id": "btn4", "lbl": "Puzzle 4", "action": lambda: self.switchContent("loginScreen")},
+            {"id": "btn5", "lbl": "Puzzle 5", "action": lambda: self.switchContent("loginScreen")},
+            {"id": "btn6", "lbl": "Puzzle 6", "action": lambda: self.switchContent("loginScreen")},
+            {"id": "btn7", "lbl": "Puzzle 7", "action": lambda: self.switchContent("loginScreen")},
+            {"id": "btn8", "lbl": "Puzzle 8", "action": lambda: self.switchContent("loginScreen")},
+            {"id": "btn9", "lbl": "Puzzle 9", "action": lambda: self.switchContent("loginScreen")}]
+
+        # Create button list for bottom buttons
+        puzzle_menu_bottom_buttons = [
+            {"id": "back", "lbl": "Back", "action": lambda: self.switchContent("mainMenu")},
+            {"id": "exit", "lbl": "Exit", "action": lambda: self.switchContent("introScreen")}]
+
+        # Create Puzzle Menu screen with all buttons
+        self.puzzle_menu = MenuScreen(
+            object_name="puzzleMenu",
+            header_label="Mr Robot",
+            title_label="#FSOCIETY",
+            splash_label="PUZZLE MENU",
+            menu_buttons=puzzle_menu_buttons,
+            bottom_buttons=puzzle_menu_bottom_buttons)
+        return self.puzzle_menu
+
+    def createToolMenu(self):
+        # Create button list for Tool Menu
+        tool_menu_buttons = [
+            {"id": "btn1", "lbl": "Tool 1", "action": lambda: self.switchContent("loginScreen")},
+            {"id": "btn2", "lbl": "Tool 2", "action": lambda: self.switchContent("loginScreen")},
+            {"id": "btn3", "lbl": "Tool 3", "action": lambda: self.switchContent("loginScreen")},
+            {"id": "btn4", "lbl": "Tool 4", "action": lambda: self.switchContent("loginScreen")},
+            {"id": "btn5", "lbl": "Tool 5", "action": lambda: self.switchContent("loginScreen")},
+            {"id": "btn6", "lbl": "Tool 6", "action": lambda: self.switchContent("loginScreen")},
+            {"id": "btn7", "lbl": "Toole 7", "action": lambda: self.switchContent("loginScreen")},
+            {"id": "btn8", "lbl": "Tool 8", "action": lambda: self.switchContent("loginScreen")},
+            {"id": "btn9", "lbl": "PTool 9", "action": lambda: self.switchContent("loginScreen")}]
+
+        # Create button list for bottom buttons
+        tool_menu_bottom_buttons = [
+            {"id": "back", "lbl": "Back", "action": lambda: self.switchContent("mainMenu")},
+            {"id": "exit", "lbl": "Exit", "action": lambda: self.switchContent("introScreen")}]
+
+        # Create Tool Menu screen with all buttons
+        self.tool_menu = MenuScreen(
+            object_name="toolMenu",
+            header_label="Mr Robot",
+            title_label="#FSOCIETY",
+            splash_label="TOOL MENU",
+            menu_buttons=tool_menu_buttons,
+            bottom_buttons=tool_menu_bottom_buttons)
+        return self.tool_menu
+
+    def createMediaMenu(self):
+        # Create button list for Media Menu
+        media_menu_buttons = [
+            {"id": "btn1", "lbl": "Media 1", "action": lambda: self.switchContent("loginScreen")},
+            {"id": "btn2", "lbl": "Media 2", "action": lambda: self.switchContent("loginScreen")},
+            {"id": "btn3", "lbl": "Media 3", "action": lambda: self.switchContent("loginScreen")},
+            {"id": "btn4", "lbl": "Media 4", "action": lambda: self.switchContent("loginScreen")},
+            {"id": "btn5", "lbl": "Media 5", "action": lambda: self.switchContent("loginScreen")},
+            {"id": "btn6", "lbl": "Media 6", "action": lambda: self.switchContent("loginScreen")},
+            {"id": "btn7", "lbl": "Media 7", "action": lambda: self.switchContent("loginScreen")},
+            {"id": "btn8", "lbl": "Media 8", "action": lambda: self.switchContent("loginScreen")},
+            {"id": "btn9", "lbl": "Media 9", "action": lambda: self.switchContent("loginScreen")}]
+
+        # Create button list for bottom buttons
+        media_menu_bottom_buttons = [
+            {"id": "back", "lbl": "Back", "action": lambda: self.switchContent("mainMenu")},
+            {"id": "exit", "lbl": "Exit", "action": lambda: self.switchContent("introScreen")}]
+
+        # Create Media Menu screen with all buttons
+        self.media_menu = MenuScreen(
+            object_name="mediaMenu",
+            header_label="Mr Robot",
+            title_label="#FSOCIETY",
+            splash_label="MEDIA MENU",
+            menu_buttons=media_menu_buttons,
+            bottom_buttons=media_menu_bottom_buttons)
+        return self.media_menu
 
     def createFooter(self):
         '''

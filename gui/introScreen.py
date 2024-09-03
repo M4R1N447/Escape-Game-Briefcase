@@ -11,7 +11,7 @@
 #
 # Author: Mario Kuijpers
 # Start date: 03-06-2024
-# Last update: 02-09-2024
+# Last update: 03-09-2024
 # Github: https://github.com/M4R1N447/Escape-Game-Briefcase
 # Status: In Progress
 # ___________________________________________________________________
@@ -30,6 +30,7 @@ from PyQt6.QtGui import QShortcut, QKeySequence
 from gui.widgets.buttonWidget import ButtonWidget as Button
 from gui.widgets.labelWidget import LabelWidget as Label
 from gui.widgets.imageWidget import ImageWidget as Image
+from gui.widgets.headerWidget import HeaderWidget as Header
 
 # Custom Imports
 from functions import createPath
@@ -60,44 +61,15 @@ class IntroScreen(QWidget):
         # Create main vertical layout
         layout = QVBoxLayout()
 
-        # Add spacing between top of screen and header label
-        layout.addSpacing(20)
-
-        # Create header layout and label widget
-        header_lyt = QHBoxLayout()
-        header_lyt.addStretch()
-        header = Label(label="Mr Robot")
-        header.setObjectName("HeaderLblWidget")
-        header_lyt.addWidget(header)
-        header_lyt.addStretch()
-        layout.addLayout(header_lyt)
-
-        # Add spacing between header label and title label
-        layout.addSpacing(25)
-
-        # Create title layout and label widget
-        title_lyt = QHBoxLayout()
-        title_lyt.addStretch()
-        title = Label(label="#FSOCIETY")
-        title.setObjectName("TitleLblWidget")
-        title_lyt.addWidget(title)
-        title_lyt.addStretch()
-        layout.addLayout(title_lyt)
-
-        # Add spacing between title label and splash label
-        layout.addSpacing(70)
-
-        # Create splash title layout and label widget
-        splash_title_lyt = QHBoxLayout()
-        splash_title_lyt.addStretch()
-        splash_title = Label(label="ESCAPE GAME")
-        splash_title.setObjectName("SplashLblWidget")
-        splash_title_lyt.addWidget(splash_title)
-        splash_title_lyt.addStretch()
-        layout.addLayout(splash_title_lyt)
+        # Header Widget
+        header = Header(
+            header_label="Mr Robot",
+            title_label="#FSOCIETY",
+            splash_label="ESCAPE GAME")
+        layout.addWidget(header)
 
         # Add spacing between splash title label and image
-        layout.addSpacing(75)
+        layout.addSpacing(25)
 
         # Create image layout and image widget
         image_lyt = QHBoxLayout()

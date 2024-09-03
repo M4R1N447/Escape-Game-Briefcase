@@ -11,7 +11,7 @@
 #
 # Author: Mario Kuijpers
 # Start date: 27-08-2024
-# Last update: 27-08-2024
+# Last update: 03-09-2024
 # Github: https://github.com/M4R1N447/Escape-Game-Briefcase
 # Status: In Progress
 # ___________________________________________________________________
@@ -60,11 +60,11 @@ class ButtonGridWidget(QWidget):
             column = i % self.columns
 
             # Create button widget
-            button["name"] = Button(
-                label=button["label"],
+            button["id"] = Button(
+                label=button["lbl"],
                 action=button["action"])
 
             # Add button widget to grid layout
-            self.btn_grid_lyt.addWidget(button["name"], row, column)
+            self.btn_grid_lyt.addWidget(button["id"], row, column)
 
         self.setLayout(self.btn_grid_lyt)

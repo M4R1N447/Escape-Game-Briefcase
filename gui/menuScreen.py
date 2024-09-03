@@ -11,16 +11,14 @@
 #
 # Author: Mario Kuijpers
 # Start date: 27-08-2024
-# Last update: 27-08-2024
+# Last update: 03-09-2024
 # Github: https://github.com/M4R1N447/Escape-Game-Briefcase
 # Status: In Progress
 # ___________________________________________________________________
 
 
 # PyQt6 Imports
-from PyQt6.QtWidgets import (QWidget,
-                             QVBoxLayout)
-
+from PyQt6.QtWidgets import (QWidget, QVBoxLayout)
 
 # Custom Imports
 from gui.widgets.buttonGridWidget import ButtonGridWidget as ButtonGrid
@@ -34,6 +32,7 @@ class MenuScreen(QWidget):
     '''
 
     def __init__(self,
+                 object_name: str = "menuScreen",
                  header_label: str = "Mr Robot",
                  title_label: str = "#FSOCIETY",
                  splash_label: str = "ESCAPE GAME",
@@ -48,6 +47,7 @@ class MenuScreen(QWidget):
                  *args, **kwargs):
         super().__init__(*args, **kwargs)
 
+        self.object_name = object_name
         self.header_label = header_label
         self.title_label = title_label
         self.splash_label = splash_label
@@ -61,13 +61,16 @@ class MenuScreen(QWidget):
         self.bot_screen_spacing = bot_screen_spacing
 
         # Set object name for styling
-        self.setObjectName("menuScreen")
+        self.setObjectName(self.object_name)
 
         # Create menu screen layout
         self.menu_screen_lyt = QVBoxLayout()
 
         # Header Widget
-        header = Header()
+        header = Header(
+            header_label=self.header_label,
+            title_label=self.title_label,
+            splash_label=self.splash_label)
         self.menu_screen_lyt.addWidget(header)
 
         # Add stretch between header and menu buttons
