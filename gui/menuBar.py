@@ -1,21 +1,23 @@
-'''
-Program Name: Standard QT Framework
+# ___________________________________________________________________
+#   ___     ____  __  .'`",.'`",.- WWW.MARIOKUIJPERS.COM -.'`",.'`",.
+#  |   \   /   | / /            .-.    .-.    ,.--.
+#  | |\ \ / /| |/ /  2024      | OO|  | OO|  /  _.-' .-. .-. .-. .''.
+#  | | \   / |    \  MARIO     |   |  |   |  \   '-. '-' '-' '-' '..'
+#  |_|  \_/  |_| \_\ KUIJPERS  '^^^'  '^^^'   `'--'
+# ___________________________________________________________________
+#
+# FILE: gui\menuBar.py
+# INFO: Top menu bar for Portable Escape Game in a briefcase
+#
+# Author: Mario Kuijpers
+# Start date: 01-06-2024
+# Last update: 03-09-2024
+# Github: https://github.com/M4R1N447/Escape-Game-Briefcase
+# Status: In Progress
+# ___________________________________________________________________
 
-Program Description:
-This is a basic QT framework which can be used to create a new program.
-This program is currently in development.
 
-File: topMenu.py
-Function: Top menu Class
-
-Author: Mario Kuijpers
-Version: 1.0
-Created: 01-06-2024
-Last Updated: 24-07-2024
-
-'''
-
-# Imports
+# Import Qt Modules
 from PyQt6.QtWidgets import QMenuBar, QMenu
 from PyQt6.QtGui import QAction
 from PyQt6.QtCore import pyqtSignal
@@ -30,7 +32,10 @@ class MenuBar(QMenuBar):
     exit = pyqtSignal()
     intro = pyqtSignal()
     login = pyqtSignal()
-    menu = pyqtSignal()
+    mainMenu = pyqtSignal()
+    puzzleMenu = pyqtSignal()
+    toolMenu = pyqtSignal()
+    mediaMenu = pyqtSignal()
     page2 = pyqtSignal()
     page3 = pyqtSignal()
 
@@ -55,8 +60,20 @@ class MenuBar(QMenuBar):
         login.triggered.connect(lambda: self.login.emit())
         page_menu.addAction(login)
 
-        menu = QAction("Menu Screen", self)
-        menu.triggered.connect(lambda: self.menu.emit())
+        menu = QAction("Main Menu", self)
+        menu.triggered.connect(lambda: self.mainMenu.emit())
+        page_menu.addAction(menu)
+
+        menu = QAction("Puzzle Menu", self)
+        menu.triggered.connect(lambda: self.puzzleMenu.emit())
+        page_menu.addAction(menu)
+
+        menu = QAction("Tool Menu", self)
+        menu.triggered.connect(lambda: self.toolMenu.emit())
+        page_menu.addAction(menu)
+
+        menu = QAction("Media Menu", self)
+        menu.triggered.connect(lambda: self.mediaMenu.emit())
         page_menu.addAction(menu)
 
         page2 = QAction("Page 2", self)

@@ -37,7 +37,7 @@ from functions import createPath
 from gui.menuBar import MenuBar
 from gui.introScreen import IntroScreen
 from gui.login import LoginScreen
-from gui.menuScreen import MenuScreen
+from gui.menu import Menu
 from gui.page2 import Page2
 from gui.page3 import Page3
 from gui.widgets.labelWidget import LabelWidget as Label
@@ -127,7 +127,10 @@ class MainWindow(QMainWindow):
         menu_bar.exit.connect(self.close)
         menu_bar.intro.connect(lambda: self.switchContent("introScreen"))
         menu_bar.login.connect(lambda: self.switchContent("loginScreen"))
-        menu_bar.menu.connect(lambda: self.switchContent("menuScreen"))
+        menu_bar.mainMenu.connect(lambda: self.switchContent("mainMenu"))
+        menu_bar.puzzleMenu.connect(lambda: self.switchContent("puzzleMenu"))
+        menu_bar.toolMenu.connect(lambda: self.switchContent("toolMenu"))
+        menu_bar.mediaMenu.connect(lambda: self.switchContent("mediaMenu"))
         menu_bar.page2.connect(lambda: self.switchContent("Page 2"))
         menu_bar.page3.connect(lambda: self.switchContent("Page 3"))
 
@@ -157,8 +160,8 @@ class MainWindow(QMainWindow):
         # Connect login_successful signal to set_user slot
 
         # Create main menu widget
-        self.main_menu_screen = self.createMainMenu()
-        self.content.addWidget(self.main_menu_screen)
+        self.main_menu = self.createMainMenu()
+        self.content.addWidget(self.main_menu)
 
         # Create puzzle menu widget
         self.puzzle_menu = self.createPuzzleMenu()
@@ -201,7 +204,7 @@ class MainWindow(QMainWindow):
             {"id": "exit", "lbl": "Exit", "action": lambda: self.switchContent("introScreen")}]
 
         # Create Main Menu screen with all buttons
-        self.main_menu_screen = MenuScreen(
+        self.main_menu_screen = Menu(
             object_name="mainMenu",
             header_label="Mr Robot",
             title_label="#FSOCIETY",
@@ -229,7 +232,7 @@ class MainWindow(QMainWindow):
             {"id": "exit", "lbl": "Exit", "action": lambda: self.switchContent("introScreen")}]
 
         # Create Puzzle Menu screen with all buttons
-        self.puzzle_menu = MenuScreen(
+        self.puzzle_menu = Menu(
             object_name="puzzleMenu",
             header_label="Mr Robot",
             title_label="#FSOCIETY",
@@ -257,7 +260,7 @@ class MainWindow(QMainWindow):
             {"id": "exit", "lbl": "Exit", "action": lambda: self.switchContent("introScreen")}]
 
         # Create Tool Menu screen with all buttons
-        self.tool_menu = MenuScreen(
+        self.tool_menu = Menu(
             object_name="toolMenu",
             header_label="Mr Robot",
             title_label="#FSOCIETY",
@@ -285,7 +288,7 @@ class MainWindow(QMainWindow):
             {"id": "exit", "lbl": "Exit", "action": lambda: self.switchContent("introScreen")}]
 
         # Create Media Menu screen with all buttons
-        self.media_menu = MenuScreen(
+        self.media_menu = Menu(
             object_name="mediaMenu",
             header_label="Mr Robot",
             title_label="#FSOCIETY",

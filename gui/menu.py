@@ -25,7 +25,7 @@ from gui.widgets.buttonGridWidget import ButtonGridWidget as ButtonGrid
 from gui.widgets.headerWidget import HeaderWidget as Header
 
 
-class MenuScreen(QWidget):
+class Menu(QWidget):
     '''
     Menu Screen Widget
     Create a complete menu screen with header, buttons and bottom buttons
