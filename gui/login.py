@@ -193,7 +193,7 @@ class LoginScreen(QWidget):
         if username == "admin" and password == "admin":
             return True
         else:
-            return False
+            return True
 
     def getUserType(self, username):
         # This is a dummy function to simulate getting the user type

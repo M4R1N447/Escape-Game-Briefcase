@@ -158,30 +158,27 @@ class MainWindow(QMainWindow):
 
         # Create intro screen content widget and connect signals to slots
         menu_buttons = [
-            {"name": "btn1", "label": "Puzzle Menu", "action": "introScreen"},
-            {"name": "btn2", "label": "Tool Menu", "action": self.switchContent("intro_screen")},
-            {"name": "btn3", "label": "Media Menu", "action": self.switchContent("intro_screen")},
-            {"name": "btn4", "label": "Button 4", "action": self.switchContent("intro_screen")},
-            {"name": "btn5", "label": "Button 5", "action": self.switchContent("intro_screen")},
-            {"name": "btn6", "label": "Button 6", "action": self.switchContent("intro_screen")},
-            {"name": "btn7", "label": "Button 7", "action": self.switchContent("intro_screen")},
-            {"name": "btn8", "label": "Button 8", "action": self.switchContent("intro_screen")},
-            {"name": "btn9", "label": "Button 9", "action": self.switchContent("intro_screen")}]
+            {"name": "btn1", "label": "Puzzle Menu", "action": lambda: self.switchContent("introScreen")},
+            {"name": "btn2", "label": "Tool Menu", "action": lambda: self.switchContent("loginScreen")},
+            {"name": "btn3", "label": "Media Menu", "action":lambda: self.switchContent("loginScreen")},
+            {"name": "btn4", "label": "Button 4", "action": lambda: self.switchContent("loginScreen")},
+            {"name": "btn5", "label": "Button 5", "action": lambda: self.switchContent("loginScreen")},
+            {"name": "btn6", "label": "Button 6", "action": lambda: self.switchContent("loginScreen")},
+            {"name": "btn7", "label": "Button 7", "action": lambda: self.switchContent("loginScreen")},
+            {"name": "btn8", "label": "Button 8", "action": lambda: self.switchContent("loginScreen")},
+            {"name": "btn9", "label": "Button 9", "action": lambda: self.switchContent("loginScreen")}]
 
         bottom_buttons = [
-            {"name": "back", "label": "Back", "action": self.switchContent("intro_screen")},
-            {"name": "exit", "label": "Exit", "action": self.switchContent("intro_screen")}]
+            {"name": "back", "label": "Back", "action": lambda: self.switchContent("Page 2")},
+            {"name": "exit", "label": "Exit", "action": lambda: self.switchContent("Page 3")}]
 
         # Create puzzle menu screen
-
         self.menu_screen = MenuScreen(
             self,
             splash_label="MAIN MENU",
             menu_buttons=menu_buttons,
             bottom_buttons=bottom_buttons)
         self.content.addWidget(self.menu_screen)
-        self.menu_screen.enter.connect(
-            lambda: self.switchContent("menuScreen"))
 
         # Create page 2 content widget and connect signals to slots
         self.page2 = Page2(self)

@@ -21,9 +21,6 @@
 from PyQt6.QtWidgets import (QWidget,
                              QVBoxLayout)
 
-from PyQt6.QtCore import pyqtSignal
-from PyQt6.QtGui import QShortcut, QKeySequence
-
 
 # Custom Imports
 from gui.widgets.buttonGridWidget import ButtonGridWidget as ButtonGrid
@@ -35,10 +32,6 @@ class MenuScreen(QWidget):
     Menu Screen Widget
     Create a complete menu screen with header, buttons and bottom buttons
     '''
-
-    # Define signals which can be emitted to the main window
-    exit = pyqtSignal()
-    enter = pyqtSignal()
 
     def __init__(self,
                  header_label: str = "Mr Robot",
