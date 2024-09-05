@@ -18,7 +18,7 @@
 
 
 # PyQt6 Imports
-from PyQt6.QtWidgets import (QWidget, QVBoxLayout)
+from PyQt6.QtWidgets import (QWidget, QFrame, QVBoxLayout)
 
 # Custom Imports
 from gui.widgets.buttonGridWidget import ButtonGridWidget as ButtonGrid
@@ -76,6 +76,14 @@ class Menu(QWidget):
         # Add stretch between header and menu buttons
         self.menu_screen_lyt.addStretch(0)
 
+        # Create button widget to hold layout
+        #menu_button_wgt = QWidget()
+
+        # Create button layout
+        # button_lyt = QVBoxLayout(menu_button_wgt)
+        # button_lyt.setContentsMargins(0, 0, 0, 0)
+        # button_lyt.objectName = "menuButtons"
+
         # Create menu buttons
         if menu_buttons:
             menu_btn_grid = ButtonGrid(
@@ -83,8 +91,11 @@ class Menu(QWidget):
                 columns=self.menu_btn_columns,
                 hor_spacing=self.hor_spacing,
                 vert_spacing=self.vert_spacing)
+            #button_lyt.addWidget(menu_btn_grid)
             self.menu_screen_lyt.addWidget(menu_btn_grid)
 
+            # Add spacing between menu and bottom buttons
+            # button_lyt.addSpacing(self.bot_btn_spacing)
             # Add spacing between menu and bottom buttons
             self.menu_screen_lyt.addSpacing(self.bot_btn_spacing)
 
@@ -95,9 +106,14 @@ class Menu(QWidget):
                 columns=self.bot_btn_columns,
                 hor_spacing=self.hor_spacing,
                 vert_spacing=self.vert_spacing)
+            # button_lyt.addWidget(bottom_btn_grid)
             self.menu_screen_lyt.addWidget(bottom_btn_grid)
+
+        # Add button frame to menu screen layout
+        #self.menu_screen_lyt.addLayout(button_lyt)
+
+
 
         # Add spacing between buttons and bottom of screen
         self.menu_screen_lyt.addSpacing(self.bot_screen_spacing)
-
         self.setLayout(self.menu_screen_lyt)

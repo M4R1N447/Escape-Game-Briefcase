@@ -16,7 +16,6 @@
 # Status: In Progress
 # ___________________________________________________________________
 
-
 # Import Qt Modules
 from PyQt6.QtWidgets import QMenuBar, QMenu
 from PyQt6.QtGui import QAction

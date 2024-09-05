@@ -139,17 +139,24 @@ KEY_COLOR = YELLOW
 }
 
 /* Main Window Style */
-QMainWindow { 
+QMainWindow QWidget #mainContent{ 
     margin: 0px 0px 0px 0px;
     border: 1px solid #00e600;
     border-radius: 8px;
 }
 
-QFrame {
-    background-color: #0a0a0f;
+QWidget #menu_button_wgt {
+    margin: 0px 0px 0px 0px;
     border: 1px solid #00e600;
     border-radius: 8px;
-}      
+}
+
+
+/* Padding: Top - Right - Bot - Left */
+QFrame#menuScreen {
+    border: 0px solid #00e600;
+    border-radius: 8px;
+}
 
 /* Label Style */
 QLabel {

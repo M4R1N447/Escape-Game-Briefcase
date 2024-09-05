@@ -18,7 +18,7 @@
 
 
 # PyQt6 Imports
-from PyQt6.QtWidgets import (QWidget, QGridLayout)
+from PyQt6.QtWidgets import (QWidget, QFrame, QVBoxLayout, QGridLayout)
 
 # Custom Imports
 from gui.widgets.buttonWidget import ButtonWidget as Button

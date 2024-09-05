@@ -82,6 +82,7 @@ class MainWindow(QMainWindow):
 
         # Create content and add to main layout
         self.createContent()
+        self.content.setObjectName("mainContent")
         layout.addWidget(self.content)
 
         # Create footer and add to main layout
