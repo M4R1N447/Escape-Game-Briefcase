@@ -19,8 +19,8 @@
 
 # PyQt6 Imports
 from PyQt6.QtCore import Qt
+from PyQt6.QtWidgets import QApplication, QLabel
 from PyQt6.QtGui import QFont
-from PyQt6.QtWidgets import QLabel
 
 
 class LabelWidget(QLabel):
@@ -28,17 +28,19 @@ class LabelWidget(QLabel):
     Label Widget Class
     '''
     def __init__(self,
+                 object_name: str = "LabelWidget",
                  label: str = "",
                  font_size: int = None,
                  align: str = None,
                  *args, **kwargs):
 
         super().__init__(*args, **kwargs)
+        self.object_name = object_name
         self.label = label
         self.font_size = font_size
 
-        # Set object name for styling
-        self.setObjectName("LabelWidget")
+        # Set object name for styling and identification
+        self.setObjectName(self.object_name)
 
         # Set label text
         self.setText(self.label)
@@ -57,3 +59,10 @@ class LabelWidget(QLabel):
                 self.setAlignment(Qt.AlignmentFlag.AlignLeft)
             elif align == "right":
                 self.setAlignment(Qt.AlignmentFlag.AlignRight)
+
+
+if __name__ == "__main__":
+    app = QApplication([])
+    widget = LabelWidget()
+    widget.show()
+    app.exec()

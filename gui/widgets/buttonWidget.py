@@ -19,7 +19,7 @@
 
 # PyQt6 Imports
 from PyQt6.QtCore import Qt
-from PyQt6.QtWidgets import QPushButton
+from PyQt6.QtWidgets import QApplication, QPushButton
 
 
 class ButtonWidget(QPushButton):
@@ -36,15 +36,15 @@ class ButtonWidget(QPushButton):
                  action=lambda: None):
         super().__init__()
 
-        # Set object name for styling
-        self.setObjectName("ButtonWidget")
-
         self.object_name = object_name
         self.label = label
         self.active = active
         self.action = action
         self.btn_height = height
         self.btn_width = width
+
+        # Set object name for styling and identification
+        self.setObjectName(self.object_name)
 
         # Set button size
         if height:
@@ -81,3 +81,10 @@ class ButtonWidget(QPushButton):
             self.setCursor(Qt.CursorShape.PointingHandCursor)
         else:
             self.setCursor(Qt.CursorShape.ForbiddenCursor)
+
+
+if __name__ == "__main__":
+    app = QApplication([])
+    widget = ButtonWidget()
+    widget.show()
+    app.exec()

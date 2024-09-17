@@ -42,6 +42,12 @@ from gui.page2 import Page2
 from gui.page3 import Page3
 from gui.widgets.labelWidget import LabelWidget as Label
 
+# Puzzle imports
+# from puzzles.memory.memory import Game as memory
+
+from gui.pygameScreen import PygameScreen
+from puzzles.test2 import PygameApp as pytest
+
 
 class MainWindow(QMainWindow):
     '''
@@ -49,10 +55,10 @@ class MainWindow(QMainWindow):
     '''
 
     def __init__(self):
-
         super().__init__()
         self.username = "unknown"
         self.userrole = "unknown"
+
 
         # Remove title bar and keep window on top
         self.setWindowFlags(Qt.WindowType.FramelessWindowHint |
@@ -110,7 +116,7 @@ class MainWindow(QMainWindow):
             # Test if stylesheet can be loaded and load it
             try:
                 with open(
-                    createPath("themes/") + str(theme), "r",
+                    createPath("gui/themes/") + str(theme), "r",
                         encoding="utf-8") as file:
                     self.setStyleSheet(file.read())
             except (OSError, FileNotFoundError) as error:
@@ -140,7 +146,7 @@ class MainWindow(QMainWindow):
 
     def createContent(self):
         '''
-        Create content
+        Create all content pages
         '''
 
         # Create stacked widget for content
@@ -181,6 +187,11 @@ class MainWindow(QMainWindow):
         self.content.addWidget(self.page2)
         self.page2.page3.connect(lambda: self.switchContent("Page 2"))
 
+        # Create intro screen content widget and connect signals to slots
+        self.pygame_screen = PygameScreen(
+            self, screen_dimensions=self.screen_dimensions)
+        self.content.addWidget(self.pygame_screen)
+
         # Create page 3 content widget and connect signals to slots
         self.page3 = Page3(self)
         self.content.addWidget(self.page3)
@@ -217,9 +228,9 @@ class MainWindow(QMainWindow):
     def createPuzzleMenu(self):
         # Create button list for Puzzle Menu
         puzzle_menu_buttons = [
-            {"id": "btn1", "lbl": "Puzzle 1", "action": lambda: self.switchContent("loginScreen")},
-            {"id": "btn2", "lbl": "Puzzle 2", "action": lambda: self.switchContent("loginScreen")},
-            {"id": "btn3", "lbl": "Puzzle 3", "action": lambda: self.switchContent("loginScreen")},
+            {"id": "btn1", "lbl": "Memory", "action": lambda: self.startMemory()},
+            {"id": "btn2", "lbl": "Pygame Test", "action": lambda: self.switchContent("pygameScreen")},
+            {"id": "btn3", "lbl": "Test2 ", "action": lambda: pytest.init_pygame(self)},
             {"id": "btn4", "lbl": "Puzzle 4", "action": lambda: self.switchContent("loginScreen")},
             {"id": "btn5", "lbl": "Puzzle 5", "action": lambda: self.switchContent("loginScreen")},
             {"id": "btn6", "lbl": "Puzzle 6", "action": lambda: self.switchContent("loginScreen")},

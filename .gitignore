@@ -28,3 +28,15 @@ gui/widgets/__pycache__/buttonGridWidget.cpython-312.pyc
 gui/__pycache__/menuScreen.cpython-312.pyc
 gui/__pycache__/puzzleMenu.cpython-312.pyc
 gui/__pycache__/menu.cpython-312.pyc
+__pycache__/config.cpython-312.pyc
+__pycache__/creds.cpython-312.pyc
+gui/widgets/__pycache__/inputWidget.cpython-312.pyc
+gui/widgets/__pycache__/lineEditWidget.cpython-312.pyc
+puzzles/__pycache__/__init__.cpython-312.pyc
+puzzles/__pycache__/test2.cpython-312.pyc
+puzzles/memory/__pycache__/__init__.cpython-312.pyc
+puzzles/memory/__pycache__/memory.cpython-311.pyc
+puzzles/memory/__pycache__/memory.cpython-312.pyc
+gui/__pycache__/pygameScreen.cpython-312.pyc
+test.py
+puzzles/test2.py

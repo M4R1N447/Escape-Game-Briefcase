@@ -18,7 +18,8 @@
 
 
 # PyQt6 Imports
-from PyQt6.QtWidgets import (QWidget,
+from PyQt6.QtWidgets import (QApplication,
+                             QWidget,
                              QHBoxLayout,
                              QVBoxLayout)
 
@@ -87,3 +88,9 @@ class HeaderWidget(QWidget):
         layout.addSpacing(75)
 
         self.setLayout(layout)
+
+if __name__ == "__main__":
+    app = QApplication([])
+    widget = HeaderWidget()
+    widget.show()
+    app.exec()

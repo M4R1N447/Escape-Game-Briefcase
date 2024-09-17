@@ -19,10 +19,11 @@
 
 # Imports
 from PyQt6.QtCore import Qt
-from PyQt6.QtGui import QPixmap
-from PyQt6.QtWidgets import (QWidget,
+from PyQt6.QtWidgets import (QApplication,
+                             QWidget,
                              QHBoxLayout,
                              QLabel)
+from PyQt6.QtGui import QPixmap
 
 
 class ImageWidget(QWidget):
@@ -84,3 +85,10 @@ class ImageWidget(QWidget):
             Qt.AlignmentFlag.AlignHCenter)
         self.image_wgt_lyt.setContentsMargins(0, 0, 0, 0)
         self.setLayout(self.image_wgt_lyt)
+
+
+if __name__ == "__main__":
+    app = QApplication([])
+    widget = ImageWidget()
+    widget.show()
+    app.exec()
