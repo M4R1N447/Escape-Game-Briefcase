@@ -1,10 +1,20 @@
-'''
-PyQt6 - Widget Tester
-
-Author: Mario Kuijpers
-Version: 1.0
-Last Updated: 11-09-2024
-'''
+# ___________________________________________________________________
+#   ___     ____  __  .'`",.'`",.- WWW.MARIOKUIJPERS.COM -.'`",.'`",.
+#  |   \   /   | / /            .-.    .-.    ,.--.
+#  | |\ \ / /| |/ /  2024      | OO|  | OO|  /  _.-' .-. .-. .-. .''.
+#  | | \   / |    \  MARIO     |   |  |   |  \   '-. '-' '-' '-' '..'
+#  |_|  \_/  |_| \_\ KUIJPERS  '^^^'  '^^^'   `'--'
+# ___________________________________________________________________
+#
+# FILE: gui\widgetTester.py
+# INFO: Intro screen for Portable Escape Game in a briefcase
+#
+# Author: Mario Kuijpers
+# Start date: 11-09-2024
+# Last update: 18-09-2024
+# Github: https://github.com/M4R1N447/Escape-Game-Briefcase
+# Status: In Progress
+# ___________________________________________________________________
 
 # Import PyQt6 modules
 from PyQt6.QtWidgets import (QApplication,

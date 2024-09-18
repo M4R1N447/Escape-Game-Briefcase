@@ -35,6 +35,9 @@ from widgets.buttonWidget import ButtonWidget as Button
 class MessageBox(QMainWindow):
     """
     Message Box Class
+
+    Create a message box with or without a message and/or  a button.
+
     """
 
     # Define signals which can be emitted to the main window
@@ -42,16 +45,16 @@ class MessageBox(QMainWindow):
 
     def __init__(self,
                  object_name: str = "MessageBox",
-                 width=500,
-                 height=200,
-                 opacity=0.85,
-                 message=None,
-                 message_size=14,
-                 button_label=None,
-                 button_height=30,
-                 button_width=125,
-                 lbl_btn_spacer=0,
-                 title="Message Box"):
+                 width: int = 500,
+                 height: int = 200,
+                 opacity: float = 1.0,
+                 message: str = None,
+                 message_size: int = 14,
+                 button_label: str = None,
+                 button_height: int = 30,
+                 button_width: int = 125,
+                 lbl_btn_spacer: int = 0,
+                 title: str = "Message Box"):
 
         super().__init__()
         self.object_name = object_name
