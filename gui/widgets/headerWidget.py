@@ -11,7 +11,7 @@
 #
 # Author: Mario Kuijpers
 # Start date: 16-03-2024
-# Last update: 29-08-2024
+# Last update: 24-09-2024
 # Github: https://github.com/M4R1N447/Escape-Game-Briefcase
 # Status: In Progress
 # ___________________________________________________________________
@@ -49,7 +49,7 @@ class HeaderWidget(QWidget):
         layout = QVBoxLayout()
 
         # Add spacing between top of screen and header label
-        layout.addSpacing(20)
+        layout.addSpacing(10)
 
         # Create header layout and label widget
         header_lyt = QHBoxLayout()
@@ -61,7 +61,7 @@ class HeaderWidget(QWidget):
         layout.addLayout(header_lyt)
 
         # Add spacing between header label and title label
-        layout.addSpacing(25)
+        layout.addSpacing(15)
 
         # Create title layout and label widget
         title_lyt = QHBoxLayout()
@@ -73,7 +73,7 @@ class HeaderWidget(QWidget):
         layout.addLayout(title_lyt)
 
         # Add spacing between title label and splash label
-        layout.addSpacing(70)
+        layout.addSpacing(25)
 
         # Create splash title layout and label widget
         splash_title_lyt = QHBoxLayout()
@@ -85,9 +85,10 @@ class HeaderWidget(QWidget):
         layout.addLayout(splash_title_lyt)
 
         # Add spacing between splash title label and image
-        layout.addSpacing(75)
+        layout.addSpacing(25)
 
         self.setLayout(layout)
+
 
 if __name__ == "__main__":
     app = QApplication([])

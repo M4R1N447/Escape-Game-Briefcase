@@ -59,14 +59,14 @@ class MainWindow(QMainWindow):
         self.username = "unknown"
         self.userrole = "unknown"
 
-
         # Remove title bar and keep window on top
         self.setWindowFlags(Qt.WindowType.FramelessWindowHint |
                             Qt.WindowType.WindowStaysOnTopHint |
                             Qt.WindowType.MaximizeUsingFullscreenGeometryHint)
 
         # Get screen dimensions
-        self.screen_height = QApplication.primaryScreen().size().height()
+        self.screen_height = (
+            QApplication.primaryScreen().size().height() - 50)
         self.screen_width = QApplication.primaryScreen().size().width()
         self.screen_dimensions = (self.screen_width, self.screen_height)
 
