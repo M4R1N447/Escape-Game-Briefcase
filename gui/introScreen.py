@@ -11,7 +11,7 @@
 #
 # Author: Mario Kuijpers
 # Start date: 03-06-2024
-# Last update: 03-09-2024
+# Last update: 28-09-2024
 # Github: https://github.com/M4R1N447/Escape-Game-Briefcase
 # Status: In Progress
 # ___________________________________________________________________
@@ -60,6 +60,7 @@ class IntroScreen(QWidget):
 
         # Create main vertical layout
         layout = QVBoxLayout()
+        layout.setContentsMargins(0, 0, 0, 0)
 
         # Header Widget
         header = Header(
@@ -73,6 +74,7 @@ class IntroScreen(QWidget):
 
         # Create image layout and image widget
         image_lyt = QHBoxLayout()
+        image_lyt.setContentsMargins(0, 0, 0, 0)
         image_lyt.addStretch()
         image_file = createPath("images/") + str("mrrobot_small.jpg")
         image = Image(
@@ -88,6 +90,7 @@ class IntroScreen(QWidget):
 
         # Create title layout and label widget
         warning_lyt = QHBoxLayout()
+        warning_lyt.setContentsMargins(0, 0, 0, 0)
         warning_lyt.addStretch()
         warning = Label(
             "Warning: Be careful with the briefcase." +
@@ -103,6 +106,7 @@ class IntroScreen(QWidget):
 
         # Create title layout and label widget
         subtitle_lyt = QHBoxLayout()
+        subtitle_lyt.setContentsMargins(0, 0, 0, 0)
         subtitle_lyt.addStretch()
         subtitle = Label(label="Press 'Start' or 'Enter' to begin the game")
         subtitle.setObjectName("SubTitleLblWidget")
@@ -115,6 +119,7 @@ class IntroScreen(QWidget):
 
         # Create button layout and widget
         button_lyt = QHBoxLayout()
+        button_lyt.setContentsMargins(0, 0, 0, 0)
         button_lyt.addStretch()
         button = Button(object_name="BigButtonWidget",
                         label="START",

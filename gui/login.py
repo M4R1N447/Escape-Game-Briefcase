@@ -11,7 +11,7 @@
 #
 # Author: Mario Kuijpers
 # Start date: 03-06-2024
-# Last update: 03-09-2024
+# Last update: 28-09-2024
 # Github: https://github.com/M4R1N447/Escape-Game-Briefcase
 # Status: In Progress
 # ___________________________________________________________________
@@ -58,6 +58,7 @@ class LoginScreen(QWidget):
 
         # Create layout
         layout = QVBoxLayout()
+        layout.setContentsMargins(0, 0, 0, 0)
 
         # Header Widget
         header = Header(
@@ -70,6 +71,7 @@ class LoginScreen(QWidget):
         layout.addSpacing(25)
 
         login_hor_lyt = QHBoxLayout()
+        login_hor_lyt.setContentsMargins(0, 0, 0, 0)
         login_hor_lyt.addStretch()
 
         # Create group box to hold login window elements
@@ -77,6 +79,7 @@ class LoginScreen(QWidget):
         login_box.setMinimumWidth(self.window_width)
         login_box.setObjectName("loginScreenGroupBox")
         login_box_lyt = QVBoxLayout(login_box)
+        login_box_lyt.setContentsMargins(0, 0, 0, 0)
 
         # Add vertical stretch
         login_box_lyt.addStretch()

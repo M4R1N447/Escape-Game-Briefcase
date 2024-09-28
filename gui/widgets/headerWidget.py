@@ -73,7 +73,7 @@ class HeaderWidget(QWidget):
         layout.addLayout(title_lyt)
 
         # Add spacing between title label and splash label
-        layout.addSpacing(25)
+        layout.addSpacing(75)
 
         # Create splash title layout and label widget
         splash_title_lyt = QHBoxLayout()

@@ -65,8 +65,7 @@ class MainWindow(QMainWindow):
                             Qt.WindowType.MaximizeUsingFullscreenGeometryHint)
 
         # Get screen dimensions
-        self.screen_height = (
-            QApplication.primaryScreen().size().height() - 50)
+        self.screen_height = QApplication.primaryScreen().size().height() - 50
         self.screen_width = QApplication.primaryScreen().size().width()
         self.screen_dimensions = (self.screen_width, self.screen_height)
 

@@ -11,14 +11,14 @@
 #
 # Author: Mario Kuijpers
 # Start date: 27-08-2024
-# Last update: 03-09-2024
+# Last update: 28-09-2024
 # Github: https://github.com/M4R1N447/Escape-Game-Briefcase
 # Status: In Progress
 # ___________________________________________________________________
 
 
 # PyQt6 Imports
-from PyQt6.QtWidgets import (QWidget, QFrame, QVBoxLayout)
+from PyQt6.QtWidgets import (QWidget, QVBoxLayout, QHBoxLayout)
 
 # Custom Imports
 from gui.widgets.buttonGridWidget import ButtonGridWidget as ButtonGrid
@@ -40,7 +40,8 @@ class Menu(QWidget):
                  bottom_buttons: dict = None,
                  menu_btn_columns: int = 3,
                  bot_btn_columns: int = 2,
-                 hor_spacing: int = 75,
+                 menu_side_spacing: int = 75,
+                 hor_spacing: int = 100,
                  vert_spacing: int = 50,
                  bot_btn_spacing: int = 50,
                  bot_screen_spacing: int = 100,
@@ -55,6 +56,7 @@ class Menu(QWidget):
         self.bottom_buttons = bottom_buttons
         self.menu_btn_columns = menu_btn_columns
         self.bot_btn_columns = bot_btn_columns
+        self.menu_side_spacing = menu_side_spacing
         self.hor_spacing = hor_spacing
         self.vert_spacing = vert_spacing
         self.bot_btn_spacing = bot_btn_spacing
@@ -63,26 +65,30 @@ class Menu(QWidget):
         # Set object name for styling
         self.setObjectName(self.object_name)
 
-        # Create menu screen layout
-        self.menu_screen_lyt = QVBoxLayout()
+        # Create main vertical layout
+        layout = QVBoxLayout()
+        layout.setContentsMargins(0, 0, 0, 0)
 
         # Header Widget
         header = Header(
             header_label=self.header_label,
             title_label=self.title_label,
             splash_label=self.splash_label)
-        self.menu_screen_lyt.addWidget(header)
+        layout.addWidget(header)
 
         # Add stretch between header and menu buttons
-        self.menu_screen_lyt.addStretch(0)
+        layout.addStretch(0)
 
-        # Create button widget to hold layout
-        #menu_button_wgt = QWidget()
+        # Create horizontal layout
+        horizontal_lyt = QHBoxLayout()
+        horizontal_lyt.setContentsMargins(0, 0, 0, 0)
 
-        # Create button layout
-        # button_lyt = QVBoxLayout(menu_button_wgt)
-        # button_lyt.setContentsMargins(0, 0, 0, 0)
-        # button_lyt.objectName = "menuButtons"
+        # Add spacing between left screen side and menu buttons
+        horizontal_lyt.addSpacing(self.menu_side_spacing)
+
+        # Create vertical layout
+        vertical_lyt = QVBoxLayout()
+        vertical_lyt.setContentsMargins(0, 0, 0, 0)
 
         # Create menu buttons
         if menu_buttons:
@@ -91,29 +97,31 @@ class Menu(QWidget):
                 columns=self.menu_btn_columns,
                 hor_spacing=self.hor_spacing,
                 vert_spacing=self.vert_spacing)
-            #button_lyt.addWidget(menu_btn_grid)
-            self.menu_screen_lyt.addWidget(menu_btn_grid)
+            vertical_lyt.addWidget(menu_btn_grid)
 
             # Add spacing between menu and bottom buttons
-            # button_lyt.addSpacing(self.bot_btn_spacing)
-            # Add spacing between menu and bottom buttons
-            self.menu_screen_lyt.addSpacing(self.bot_btn_spacing)
+            vertical_lyt.addSpacing(self.bot_btn_spacing)
 
-        # Create bottom buttons layout
+        # Create bottom buttons
         if bottom_buttons:
             bottom_btn_grid = ButtonGrid(
                 buttons=self.bottom_buttons,
                 columns=self.bot_btn_columns,
                 hor_spacing=self.hor_spacing,
                 vert_spacing=self.vert_spacing)
-            # button_lyt.addWidget(bottom_btn_grid)
-            self.menu_screen_lyt.addWidget(bottom_btn_grid)
+            vertical_lyt.addWidget(bottom_btn_grid)
 
-        # Add button frame to menu screen layout
-        #self.menu_screen_lyt.addLayout(button_lyt)
+        # Add vertical layout to horizontal layout
+        horizontal_lyt.addLayout(vertical_lyt)
 
+        # Add spacing between right screen side and menu buttons
+        horizontal_lyt.addSpacing(self.menu_side_spacing)
 
+        # Add horizontal layout to main layout
+        layout.addLayout(horizontal_lyt)
 
-        # Add spacing between buttons and bottom of screen
-        self.menu_screen_lyt.addSpacing(self.bot_screen_spacing)
-        self.setLayout(self.menu_screen_lyt)
+        # Add spacing between menu and bottom of screen
+        layout.addSpacing(self.bot_screen_spacing)
+
+        # Set layout
+        self.setLayout(layout)
