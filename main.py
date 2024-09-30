@@ -46,6 +46,7 @@ from gui.widgets.labelWidget import LabelWidget as Label
 # from puzzles.memory.memory import Game as memory
 
 from gui.pygameScreen import PygameScreen
+from gui.pygameWidget import PygameWidget
 from puzzles.test2 import PygameApp as pytest
 
 
@@ -148,6 +149,11 @@ class MainWindow(QMainWindow):
         Create all content pages
         '''
 
+        # Create main layout for main window
+        layout = QHBoxLayout()
+        layout.setContentsMargins(0, 0, 0, 0)
+        layout.addStretch()
+
         # Create stacked widget for content
         self.content = QStackedWidget()
 
@@ -187,14 +193,23 @@ class MainWindow(QMainWindow):
         self.page2.page3.connect(lambda: self.switchContent("Page 2"))
 
         # Create intro screen content widget and connect signals to slots
-        self.pygame_screen = PygameScreen(
-            self, screen_dimensions=self.screen_dimensions)
-        self.content.addWidget(self.pygame_screen)
+        # self.pygame_screen = PygameScreen(
+        #     self, screen_dimensions=self.screen_dimensions)
+        # self.content.addWidget(self.pygame_screen)
+
+        # Create intro screen content widget and connect signals to slots
+        self.pygame_test = PygameWidget(self, screen_dimensions=self.screen_dimensions)
+        self.content.addWidget(self.pygame_test)
 
         # Create page 3 content widget and connect signals to slots
         self.page3 = Page3(self)
         self.content.addWidget(self.page3)
         self.page3.page3.connect(lambda: self.switchContent("Page 3"))
+
+        layout.addWidget(self.content)
+        layout.addStretch()
+
+        return layout
 
     def createMainMenu(self):
         # Create button list for Main Menu
@@ -228,7 +243,7 @@ class MainWindow(QMainWindow):
         # Create button list for Puzzle Menu
         puzzle_menu_buttons = [
             {"id": "btn1", "lbl": "Memory", "action": lambda: self.startMemory()},
-            {"id": "btn2", "lbl": "Pygame Test", "action": lambda: self.switchContent("pygameScreen")},
+            {"id": "btn2", "lbl": "Pygame Test", "action": lambda: self.switchContent("pygameTest")},
             {"id": "btn3", "lbl": "Test2 ", "action": lambda: pytest.init_pygame(self)},
             {"id": "btn4", "lbl": "Puzzle 4", "action": lambda: self.switchContent("loginScreen")},
             {"id": "btn5", "lbl": "Puzzle 5", "action": lambda: self.switchContent("loginScreen")},
