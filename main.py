@@ -193,11 +193,6 @@ class MainWindow(QMainWindow):
         self.page2.page3.connect(lambda: self.switchContent("Page 2"))
 
         # Create intro screen content widget and connect signals to slots
-        # self.pygame_screen = PygameScreen(
-        #     self, screen_dimensions=self.screen_dimensions)
-        # self.content.addWidget(self.pygame_screen)
-
-        # Create intro screen content widget and connect signals to slots
         self.pygame_test = PygameWidget(self, screen_dimensions=self.screen_dimensions)
         self.content.addWidget(self.pygame_test)
 

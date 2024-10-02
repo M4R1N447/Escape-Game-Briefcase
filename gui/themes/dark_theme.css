@@ -151,7 +151,6 @@ QWidget #menu_button_wgt {
     border-radius: 8px;
 }
 
-
 /* Padding: Top - Right - Bot - Left */
 QFrame#menuScreen {
     border: 0px solid #00e600;
