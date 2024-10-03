@@ -41,3 +41,5 @@ gui/__pycache__/pygameScreen.cpython-312.pyc
 test.py
 puzzles/test2.py
 gui/__pycache__/pygameWidget.cpython-312.pyc
+puzzles/memory/__pycache__/memory2.cpython-312.pyc
+gui/__pycache__/emptyScreen.cpython-312.pyc

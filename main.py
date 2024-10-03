@@ -44,10 +44,9 @@ from gui.widgets.labelWidget import LabelWidget as Label
 
 # Puzzle imports
 # from puzzles.memory.memory import Game as memory
-
-from gui.pygameScreen import PygameScreen
 from gui.pygameWidget import PygameWidget
-from puzzles.test2 import PygameApp as pytest
+# from puzzles.memory.memory2 import Memory
+from gui.pygameScreen import PygameScreen
 
 
 class MainWindow(QMainWindow):
@@ -196,6 +195,14 @@ class MainWindow(QMainWindow):
         self.pygame_test = PygameWidget(self, screen_dimensions=self.screen_dimensions)
         self.content.addWidget(self.pygame_test)
 
+        # Create intro screen content widget and connect signals to slots
+        self.pygame_screen = PygameScreen(self, screen_dimensions=self.screen_dimensions)
+        self.content.addWidget(self.pygame_screen)
+
+        # Create intro screen content widget and connect signals to slots
+        # self.memory = Memory(self, screen_dimensions=self.screen_dimensions)
+        # self.content.addWidget(self.memory)
+
         # Create page 3 content widget and connect signals to slots
         self.page3 = Page3(self)
         self.content.addWidget(self.page3)
@@ -237,10 +244,10 @@ class MainWindow(QMainWindow):
     def createPuzzleMenu(self):
         # Create button list for Puzzle Menu
         puzzle_menu_buttons = [
-            {"id": "btn1", "lbl": "Memory", "action": lambda: self.startMemory()},
+            {"id": "btn1", "lbl": "Memory", "action": lambda: self.switchContent("pygameTest")},
             {"id": "btn2", "lbl": "Pygame Test", "action": lambda: self.switchContent("pygameTest")},
-            {"id": "btn3", "lbl": "Test2 ", "action": lambda: pytest.init_pygame(self)},
-            {"id": "btn4", "lbl": "Puzzle 4", "action": lambda: self.switchContent("loginScreen")},
+            {"id": "btn3", "lbl": "Empty Screen ", "action": lambda: self.switchContent("emptyScreen")},
+            {"id": "btn4", "lbl": "NEW TEST", "action": lambda: self.switchContent("pygameScreen")},
             {"id": "btn5", "lbl": "Puzzle 5", "action": lambda: self.switchContent("loginScreen")},
             {"id": "btn6", "lbl": "Puzzle 6", "action": lambda: self.switchContent("loginScreen")},
             {"id": "btn7", "lbl": "Puzzle 7", "action": lambda: self.switchContent("loginScreen")},
@@ -364,6 +371,15 @@ class MainWindow(QMainWindow):
         '''
         Switch to another page in stacked widget self.content
         '''
+
+        if page == "emptyScreen":
+            from gui.emptyScreen import EmptyScreen
+            # Create empty screen content widget and connect signals to slots
+            self.empty_screen = EmptyScreen(
+                self, screen_dimensions=self.screen_dimensions)
+            self.content.addWidget(self.empty_screen)
+            self.empty_screen.exit.connect(
+                lambda: self.switchContent("mainMenu"))
 
         # Get index of page
         index = self.content.indexOf(self.content.findChild(QWidget, page))
