@@ -108,7 +108,7 @@ class IntroScreen(QWidget):
         subtitle_lyt = QHBoxLayout()
         subtitle_lyt.setContentsMargins(0, 0, 0, 0)
         subtitle_lyt.addStretch()
-        subtitle = Label(label="Press 'Start' or 'Enter' to begin the game")
+        subtitle = Label(label="Press 'Start' or 'Enter' to begin the game", blink=True)
         subtitle.setObjectName("SubTitleLblWidget")
         subtitle_lyt.addWidget(subtitle)
         subtitle_lyt.addStretch()

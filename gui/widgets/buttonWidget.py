@@ -11,14 +11,14 @@
 #
 # Author: Mario Kuijpers
 # Start date: 09-08-2024
-# Last update: 02-09-2024
+# Last update: 16-10-2024
 # Github: https://github.com/M4R1N447/Escape-Game-Briefcase
 # Status: In Progress
 # ___________________________________________________________________
 
 
 # PyQt6 Imports
-from PyQt6.QtCore import Qt
+from PyQt6.QtCore import Qt, QTimer
 from PyQt6.QtWidgets import QApplication, QPushButton
 
 
@@ -28,6 +28,7 @@ class ButtonWidget(QPushButton):
     '''
 
     def __init__(self,
+                 parent=None,
                  object_name: str = "ButtonWidget",
                  label: str = "",
                  height: int = 0,
@@ -38,9 +39,11 @@ class ButtonWidget(QPushButton):
                  state_false_color: str = "red",
                  state_false_text_color: str = "white",
                  active: bool = True,
-                 action=lambda: None):
-        super().__init__()
-
+                 action=lambda: None,
+                 blink: bool = False,
+                 blink_interval: int = 500):
+        super().__init__(parent)
+        # Set object name for widget identification in stylesheet
         self.object_name = object_name
         self.label = label
         self.state = state
@@ -52,6 +55,8 @@ class ButtonWidget(QPushButton):
         self.action = action
         self.btn_height = height
         self.btn_width = width
+        self.blink = blink
+        self.blink_interval = blink_interval
 
         # Set object name for styling and identification
         self.setObjectName(self.object_name)
@@ -72,8 +77,34 @@ class ButtonWidget(QPushButton):
         # Start action when button is clicked
         self.clicked.connect(lambda _: self.action())
 
+        # Initialize timer for blinking text
+        self.blink_timer = QTimer(self)
+        self.blink_timer.timeout.connect(self.blinkText)
+
         # Set cursor
         self.updateCursor()
+
+        # Start blinking text
+        if self.blink:
+            self.blink_timer.start(self.blink_interval)
+
+    def blinkText(self):
+        '''
+        Blink text function
+        '''
+        if self.text() == self.label:
+            self.setText("")
+        else:
+            self.setText(self.label)
+
+    def resetBlink(self):
+        '''
+        Reset blink timer and visibility
+        '''
+        self.setText(self.label)
+        self.blink_timer.stop()
+        self.blink_interval = 0
+        self.blink = False
 
     def toggleState(self):
         '''

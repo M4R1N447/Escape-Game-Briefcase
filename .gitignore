@@ -43,3 +43,16 @@ puzzles/test2.py
 gui/__pycache__/pygameWidget.cpython-312.pyc
 puzzles/memory/__pycache__/memory2.cpython-312.pyc
 gui/__pycache__/emptyScreen.cpython-312.pyc
+sandbox/vbw_window.py
+sandbox/mod_window.py
+sandbox/s_P_window.py
+sandbox/menu_bar.py
+sandbox/widget_tester.py
+sandbox/main_newGUI.py
+sandbox/line_edit_widget.py
+sandbox/label_widget.py
+sandbox/entry_window.py
+sandbox/dark_theme.css
+sandbox/cw_window.py
+sandbox/button_widget.py
+sandbox/button_grid_widget.py
